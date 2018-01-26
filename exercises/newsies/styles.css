@@ -1,0 +1,48 @@
+body {
+    padding: 5px;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+h2 {
+    text-decoration: underline;
+    font-size: 32px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    font-weight: 700;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.main {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+p {
+    font-size: 22px;
+    border: 1px;
+}
+
+p.img {
+    float: left;
+    overflow: auto;
+}
+
+.body-column {
+    display: inline-block;
+    padding-left: 18px;
+    height: 300;
+    width: 25%;
+}
+
+.footer-column {
+    display: inline-block;
+    padding-left: 120px;
+    height: 300px;
+    width: 250px;
+    border: 1px;
+}
