@@ -1,0 +1,86 @@
+.box1 {
+    height: 150px;
+    width: 100%;
+    /* background-color: blue; */
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv63pdV7tJneRYHN7vXUbvywP7WzpALLWZcb47Cm-YdFsu0lEd);
+    background-size: cover;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.box2 {
+    height: 150px;
+    width: 100%;
+    background-color: lightblue;
+    position: relative;
+    visibility: hidden;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.box3 {
+    height: 350px;
+    width: 50%;
+    background-color: white;
+    position: relative;
+    /* padding-top: 25px; */
+    padding-bottom: 50px;
+    /* top: 50%; */
+    left: 50%;
+    /* right: 0%; */
+    transform: translate(-50%);
+}
+
+h1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 26.4px;
+    padding-left: 125px;
+}
+h3 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+    padding-left: 125px;
+}
+p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+img {
+    float: left;
+    padding-right: 10px;
+}
+
+/* .blockquote {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+.pre {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+} */
