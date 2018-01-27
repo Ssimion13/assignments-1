@@ -1,0 +1,26 @@
+* {
+    /* box-sizing: border-box; */
+    font-size: 0px;
+}
+
+.box1 {
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    border: solid 1px black;
+    position: relative;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.box2 {
+    height: 350px;
+    width: 350px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

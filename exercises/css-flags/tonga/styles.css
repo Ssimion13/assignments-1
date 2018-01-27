@@ -1,0 +1,45 @@
+* {
+    /* box-sizing: border-box; */
+    font-size: 0px;
+}
+
+.box1 {
+    height: 600px;
+    width: 900px;
+    background-color: red;
+    border: solid 1px black;
+    position: relative;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.box2 {
+    height: 300px;
+    width: 375px;
+    background-color: white;
+    position: absolute;
+    /* top: 50%; */
+    top: 0%;
+    /* transform: translate(-50%, -50%); */
+}
+
+.box3 {
+    height: 50px;
+    width: 150px;
+    background-color: red;
+    position: absolute;
+    top: 39%;
+    left: 28%;
+    /* transform: translate(-50%, -50%); */
+}
+
+.box4 {
+    height: 150px;
+    width: 50px;
+    background-color: red;
+    position: absolute;
+    top: 22%;
+    left: 42%;
+    /* transform: translate(-50%, -50%); */
+}

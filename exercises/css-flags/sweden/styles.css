@@ -1,0 +1,35 @@
+* {
+    /* box-sizing: border-box; */
+    font-size: 0px;
+}
+
+.box1 {
+    height: 600px;
+    width: 900px;
+    background-color: blue;
+    border: solid 1px black;
+    position: relative;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.box2 {
+    height: 600px;
+    width: 100px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.box3 {
+    height: 100px;
+    width: 900px;
+    background-color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
