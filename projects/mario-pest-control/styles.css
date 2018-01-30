@@ -1,0 +1,132 @@
+.box1 {
+    height: 150px;
+    width: 100%;
+    background-color: lightblue;
+    background-size: cover;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.box2 {
+    height: 150px;
+    width: 100%;
+    position: relative;
+    visibility: hidden;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.box3 {
+    height: 60px;
+    width: 100%;
+    background-color: lightblue;
+    background-size: cover;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+h1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 72px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+h3 {
+    font-family: Verdana, Geneva, sans-serif;
+    display: inline-block;
+    padding-left: 2%;
+}
+
+p {
+    font-family: Verdana, Geneva, sans-serif;
+    display: inline-block;
+    padding-left: 1%;
+}
+
+.right {
+    position: absolute;
+    right: 5%;
+}
+
+img {
+    position: relative;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+}
+.labels {
+    font-size: 24px;
+    font-family: Verdana, serif;
+    font-weight: 600;
+    text-decoration: underline;
+    position: relative;
+    left: 25%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.label1 {
+    left: 34%;
+}
+
+.label2 {
+    left: 33%;
+}
+
+.label3 {
+    left: 25%
+}
+
+.result {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.divs {
+    position: relative;
+    display: inline-block;
+    border-radius: 15%;
+    height: 600px;
+    width: 400px;
+}
+
+.div1 {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+.div2 {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+}
+
+.div3 {
+    position: absolute;
+    top: 20%;
+    left: 66%;
+}
+
+.blue {
+    border: solid 3px blue;
+}
+
+.green {
+    border: solid 3px green;
+}
+
+.red {
+    border: solid 3px red;
+}

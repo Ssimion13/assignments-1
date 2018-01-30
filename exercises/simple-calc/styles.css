@@ -1,0 +1,28 @@
+.labels {
+    font-size: 24px;
+    font-family: Verdana, serif;
+    font-weight: 600;
+}
+
+.result {
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.divs {
+    padding-left: 450px;
+    padding-top: 70px;
+    height: 150px;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
