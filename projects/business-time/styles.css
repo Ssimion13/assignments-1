@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    font-size: 0px;
+}
+
+.box1 {
+    height: 100px;
+    width: 100%;
+    background-color: lightblue;
+    background-size: cover;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+ul {
+    height: 30px;
+    list-style-type: none;
+}
+
+li {
+    font-size: 16px;
+    /* display: inline; */
+    margin-top: 10px;
+    width: 25%;
+    float: left;
+}
+
+.box2 {
+    height: 150px;
+    width: 100%;
+    background-color: lightblue;
+    position: relative;
+    visibility: hidden;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.box3 {
+    height: 350px;
+    width: 50%;
+    background-color: white;
+    position: relative;
+    /* padding-top: 25px; */
+    padding-bottom: 50px;
+    /* top: 50%; */
+    left: 50%;
+    /* right: 0%; */
+    transform: translate(-50%);
+}
+
+.box4 {
+    height: 400px;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1444212568492-d2799d30943b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dbe357f6818e3ba3700ddb4c846fac11&auto=format&fit=crop&w=1352&q=80);
+    background-size: cover;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    right: 0%;
+}
+
+nav {
+    height: 75px;
+    width: 100%;
+    background-color: blue;
+    background-size: cover;
+    position: fixed;
+    top: 15%;
+    left: 0%;
+    right: 0%;
+}
+
+h1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+    position: absolute;
+    left: 10%;
+
+}
+h3 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+p {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+img {
+    height: 200px;
+    width: 300px;
+}
+
+/* .blockquote {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+.pre {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+} */

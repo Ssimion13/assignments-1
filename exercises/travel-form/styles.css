@@ -1,0 +1,59 @@
+body {
+    padding-top: 50px;
+    padding-left: 100px;
+}
+
+label {
+    padding-right: 30px;
+    padding-left: 10px;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+}
+
+input {
+    height: 25px;
+}
+
+.large {
+    font-size: 26px;
+}
+
+.all {
+    font-family: verdana, serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.first {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.last {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.age {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.gender {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.destination {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.diet {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

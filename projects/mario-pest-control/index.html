@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="styles.css" rel="stylesheet">
         <title>Mario Pest Control</title>
     </head>
@@ -10,25 +12,35 @@
         <form name="marioForm">
             <div id="goombas" class="divs div1 blue">
                 <img src="data:image/jpeg;base64,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" alt="Goombas Pic"/><br>
-                <label class="labels label1">Goombas</label><br>
-                First Number: <input id="addNum1"/>
+                <label class="labels label1">Goombas</label><br><br><br>
+                <label class="labels label1">5 Coins</label><br><br><br>
+                <label>Number Caught:<input class="input" type="text" name="goombasCaught"/></label>
             </div>
             <div id="bob-ombs" class="divs div2 green">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThN0PL3BDlBoOu34FNDTQIuN6hT-rtfC2zzLxeLoUg9ZWRPim0" alt="Bob-ombs Pic"/><br>
-                <label class="labels label2">Bob-ombs</label><br>
-                First Number: <input id="subNum1"/>
+                <label class="labels label2">Bob-ombs</label><br><br><br>
+                <label class="labels label2">7 Coins</label><br><br><br>
+                <label>Number Caught:<input class="input" type="text" name="bobombsCaught"/></label>
             </div>
             <div id="cheeps" class="divs div3 red">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStyP7keAVhxHkPzVuvEQojlADdr3y7ULVgLGFZL4PywLSPDXKVGw" alt="Cheep-cheeps Pic"/><br>
-                <label class="labels label3">Cheep-cheeps</label><br>
-                First Number: <input id="multNum1"/>
+                <label class="labels label3">Cheep-cheeps</label><br><br><br>
+                <label class="labels label3">11 Coins</label><br><br><br>
+                <label>Number Caught:<input class="input" type="text" name="cheepsCaught"/></label>
+            </div>
+            <button class="button">Submit</button>
+            <div class="result">
+                <label name="result">Result:</label>
             </div>
         </form>
+        <div class="result">
+            <label id="result">Result:</label>
+        </div>
         <div class="box1">
             <h1>Mario Pest Control</h1>
         </div>
         <div class="box3">
-            <h3>Mario Pest Control, Inc.</h3><p>1234 Koopa Street, Pipe City, NY 10125</p><p class="right">www.MarioPestControl.com</p>
+            <h3>Mario Pest Control, Inc.</h3><br><p>1234 Koopa Street, Pipe City, NY 10125</p><p class="right">www.MarioPestControl.com</p>
         </div>
         <script src="script.js" type="text/javascript"></script>
     </body>
