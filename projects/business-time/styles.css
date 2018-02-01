@@ -33,11 +33,16 @@ li {
 
 a {
     font-size: 16px;
+    text-decoration: none;
     /* display: inline; */
     margin-top: 10px;
     margin-left: 15%;
     width: 25%;
     float: left;
+}
+
+a:hover {
+   text-decoration: underline;
 }
 
 .box1 {
@@ -95,6 +100,8 @@ a {
     height: 110px;
     width: auto;
     margin-right: 10px;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.70);
 }
 
 .srvH1 {
@@ -307,6 +314,7 @@ input {
 
 .large {
     font-size: 22px;
+    padding-right: 10%;
 }
 
 .all {
