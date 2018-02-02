@@ -1,7 +1,7 @@
 var ask = require('readline-sync');
 
 var hasKey = false;
-gameOver = false;
+var gameOver = false;
 var initialize = ask.question('Welcome to the game, <<ESCAPE ROOM>>\n\nYou are stuck in a room. See if you can get out. Press \'ENTER\'\n\n');
 
 while (gameOver === false) {
@@ -17,9 +17,9 @@ while (gameOver === false) {
     }
     if (selection === '3') {
         if (hasKey) {
-            console.log('You have escaped the room! Good job!')
+            console.log('You have escaped the room! Good job!');
             gameOver = true;
         }
-        console.log('You can\'t open the door. You don\'t have a key.')
+        console.log('You can\'t open the door. You don\'t have a key.');
     }
 }

@@ -51,16 +51,32 @@ while (player.health > 0) {
     } else {
         var selectionGood = false;
         var fightOrFlight = ask.question('A ' + enemies[attackRandom].name + ' has appeared! Press \'a\' to attack, or \'r\' to run: ');
-        while (selectionGood === false) {
+        while (selectionGood) {
             if (fightOrFlight !== 'a') {
                 if (fightOrFlight !== 'r') {
+                    selectionGood = true;
                     fightOrFlight = ask.question('Press \'a\' to attack, or \'r\' to run: ');
                 }
             }
         }
+
         if (fightOrFlight === 'r') {
             var survived = Math.random() + 1;
-            console.log(survived);
+
+            if (survived < 1.5) {
+                console.log('You tried to run away, but the ' + enemies[attackRandom].name + ' caught you and ate you. You\'re dead.\n\nThanks for playing!');
+            } else {
+                console.log('You got away! But the ' + enemies[attackRandom].name + ' attacked you from behind and you lose ' + (Math.floor(Math.random() * (enemies[attackRandom].name.attackMax) + enemies[attackRandom].name.attackMin)) + ' health points.');
+            }
+        } else {
+            while (player.health > 0 && enemies[attackRandom].name.health > 0) {
+                var playerAttackPoints = (Math.floor(Math.random() * (player.attackMax) + player.attackMin));
+                enemies[attackRandom].name.health -= playerAttackPoints;
+                console.log('You attack the ' + enemies[attackRandom].name + ' it loses ' + playerAttackPoints + ' health points.\n');
+                var enemyAttackPoints = (Math.floor(Math.random() * (enemies[attackRandom].name.attackMax) + enemies[attackRandom].name.attackMin));
+                player.health -= enemyAttackPoints;
+                console.log('The ' + enemies[attackRandom].name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
+        }
         }
     }
 }
