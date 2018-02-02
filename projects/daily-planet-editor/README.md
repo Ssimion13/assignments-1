@@ -1,3 +1,3 @@
 # daily-planet-editor
 
-This is the file associated with the Daily Planet Editor project, which can be found at [coursework.vschool.io/daily-planet-editor/](http://coursework.vschool.io/daily-planet-editor/)
+The project assignment is to correct all the coding errors in the program. I learned a little more about correcting syntax and logic errors.

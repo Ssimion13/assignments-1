@@ -1,0 +1,1 @@
+The project assignment is to create a simple calculator with html, css, and JS that will calculate the price owed to Mario for the total number of baddies he has captured. I learned how to design a site for the smallest screen. I also learned more about how to calculate user input and manipulate the DOM with JS.
