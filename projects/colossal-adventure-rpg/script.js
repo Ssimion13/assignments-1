@@ -1,36 +1,60 @@
-var player = {
-    name: "",
-    attackMin: 5,
-    attackMax: 10,
-    health: 50,
-    items: []
-};
+var ask = require('readline-sync');
+
+function walk(){
+
+}
+
+function run(){
+
+}
+
+function fight(){
+
+}
+
+function attackEnemy(){
+
+}
+
+function enemyAttack(){
+
+}
+
+function die(){
+
+}
+
+function enemyDie(){
+
+}
+
+function enemyCreation(){
+
+}
+
+function Player (name, attackMin, attackMax, health, items) {
+    this.name = name;
+    this.attackMin = attackMin;
+    this.attackMax = attackMax;
+    this.health = health;
+    this.items = items;
+}
+
+function Enemy (name, attackMin, attackMax, health, item) {
+    this.name = name;
+    this.attackMin = attackMin;
+    this.attackMax = attackMax;
+    this.health = health;
+    this.item = item;
+}
+
+var player = new Player("", 5, 10, 50, []);
 
 var enemies = [
-    enemyOne = {
-        name: "Fanged Rabbit",
-        attackMin: 1,
-        attackMax: 3,
-        health: 12,
-        item: "black pearl"
-    },
-    enemyTwo = {
-        name: "Snollygoster",
-        attackMin: 3,
-        attackMax: 5,
-        health: 20,
-        item: "red jewel"
-    },
-    enemyThree = {
-        name: "Bloody Bones",
-        attackMin: 4,
-        attackMax: 7,
-        health: 30,
-        item: "magic staff"
-    }
-]
-
-var ask = require('readline-sync');
+    enemyOne = new Enemy("Fanged Rabbit", 1, 3, 12, "black pearl"),
+    enemyTwo = new Enemy("Snollygoster", 3, 5, 20, "red jewel"),
+    enemyThree = new Enemy("Bloody Bones", 4, 7, 30, "magic staff")
+];
 
 var gameOver = false;
 var choices = ["Keep Playing", "Display Your Info", "End the Game"];
@@ -54,12 +78,11 @@ while (!gameOver) {
     } else {
         var selectionGood = false;
         var fightOrFlight = ask.question('\nA ' + enemies[attackRandom].name + ' has appeared! Press \'a\' to attack, or \'r\' to run: ');
-        while (selectionGood) {
-            if (fightOrFlight !== 'a') {
-                if (fightOrFlight !== 'r') {
-                    selectionGood = true;
-                    fightOrFlight = ask.question('Press \'a\' to attack, or \'r\' to run: ');
-                }
+        while (!selectionGood) {
+            if (fightOrFlight !== 'a' && fightOrFlight !== 'r') {
+                fightOrFlight = ask.question('Press \'a\' to attack, or \'r\' to run: ');
+            } else {
+                selectionGood = true;
             }
         }
 
@@ -76,25 +99,25 @@ while (!gameOver) {
             while (player.health > 0 && enemies[attackRandom].health > 0) {
                 var playerAttackPoints = Math.floor(Math.random() * (player.attackMax - player.attackMin + 1)) + player.attackMin;
                 enemies[attackRandom].health -= playerAttackPoints;
-                //console.log("Enemy's current health: " + enemies[attackRandom].health);
                 console.log('You attack the ' + enemies[attackRandom].name + ' and it loses ' + playerAttackPoints + ' health points.\n');
 
                 var enemyAttackPoints = Math.floor(Math.random() * (enemies[attackRandom].attackMax - enemies[attackRandom].attackMin + 1)) + enemies[attackRandom].attackMin;
                 player.health -= enemyAttackPoints;
-                //console.log("Player's current health: " + player.health);
-                console.log('The ' + enemies[attackRandom].name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
+                if (enemies[attackRandom].health > 0) {
+                    console.log('The ' + enemies[attackRandom].name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
+                }
             }
             if (player.health > 0) {
                 console.log("You have defeated the " + enemies[attackRandom].name + ". After searching the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".\nIt is now added to your inventory. Good job!\n");
-                player.items.push(enemies[attackRandom].item + " ");
-                console.log("You receive and additonal 15 health points.");
-                player.health += 15;
+                player.items.push(" " + enemies[attackRandom].item);
+                console.log("You receive an additonal 5 health points.");
+                player.health += 5;
 
                 do {
                     var choiceIndex = ask.keyInSelect(choices, "What do you want to do?: ");
 
                     if (choices[choiceIndex] === "Display Your Info") {
-                        console.log("\nName: " + player.name + "\nCurrent Health Points: " + player.health + "\nItems Inventory: " + player.items + "\n");
+                        console.log("\nName: " + player.name + "\nCurrent Health Points: " + player.health + "\nItems Inventory:" + player.items + "\n");
                     } else if (choices[choiceIndex] === "End the Game") {
                         console.log("Thank you for playing. Good bye.");
                         gameOver = true;
