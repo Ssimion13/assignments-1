@@ -1,12 +1,61 @@
 var ask = require('readline-sync');
 
 function displayGameName() {
-console.log("\nWelcome to the awesome game: \n");
-console.log(" ____  ___  _      ___  ____  ____    _    _          _    ______     _______ _   _ _____ _   _ ____  _____ ");
-console.log("/ ___|/ _ \\| |    / _ \\/ ___|/ ___|  / \\  | |        / \\  |  _ \\ \\   / / ____| \\ | |_   _| | | |  _ \\| ____|");
-console.log("| |  | | | | |   | | | \\___ \\\\___ \\ / _ \\ | |       / _ \\ | | | \\ \\ / /|  _| |  \\| | | | | | | | |_) |  _|");
-console.log("| |__| |_| | |___| |_| |___) |___) / ___ \\| |___   / ___ \\| |_| |\\ V / | |___| |\\  | | | | |_| |  _ <| |___");
-console.log("\\____|\\___/|_____|\\___/|____/|____/_/   \\_\\_____| /_/   \\_\\____/  \\_/  |_____|_| \\_| |_|  \\___/|_| \\_\\_____|");
+    console.log("\nWelcome to the awesome game: \n");
+    console.log(" ____  ___  _      ___  ____  ____    _    _          _    ______     _______ _   _ _____ _   _ ____  _____ ");
+    console.log("/ ___|/ _ \\| |    / _ \\/ ___|/ ___|  / \\  | |        / \\  |  _ \\ \\   / / ____| \\ | |_   _| | | |  _ \\| ____|");
+    console.log("| |  | | | | |   | | | \\___ \\\\___ \\ / _ \\ | |       / _ \\ | | | \\ \\ / /|  _| |  \\| | | | | | | | |_) |  _|");
+    console.log("| |__| |_| | |___| |_| |___) |___) / ___ \\| |___   / ___ \\| |_| |\\ V / | |___| |\\  | | | | |_| |  _ <| |___");
+    console.log("\\____|\\___/|_____|\\___/|____/|____/_/   \\_\\_____| /_/   \\_\\____/  \\_/  |_____|_| \\_| |_|  \\___/|_| \\_\\_____|");
+}
+
+function displayKnife() {
+
+}
+
+function displayAxe() {
+
+}
+
+function displayPotion() {
+
+}
+
+function displayFangedRabbit() {
+    console.log("    __    __");
+    console.log("   / \\\\..// \\");
+    console.log("     ( oo ) ");
+    console.log("      \\WW/");
+    //console.log("       ");
+
+}
+
+function displaySnollygoster() {
+console.log("    .      .");
+console.log("    |\\____/|");
+console.log("   (\\|----|/)");
+console.log("    \\ 0  0 /");
+console.log("     |    |");
+console.log("  ___/\\../\\____");
+console.log(" /     --       \\");
+console.log("/  \\         /   \\");
+console.log("|    \\___/___/(   |");
+console.log("\\   /|  }{   | \\  )");
+console.log("\\  ||__}{__|  |  |");
+console.log(" \\  |;;;;;;;\\  \\ / \\_______");
+console.log("  \\ /;;;;;;;;| [,,[|======'");
+console.log("    |;;;;;;/ |     /");
+console.log("    ||;;|\\   |");
+console.log("    ||;;/|   /");
+console.log("    \\_|:||__|");
+console.log("     \\ ;||  /");
+console.log("     |= || =|");
+console.log("     |= /\\ =|");
+console.log("     /_/  \\_\\");
+}
+
+function displayBloodyBones() {
+
 }
 
 function walk() {
@@ -15,6 +64,7 @@ function walk() {
 
 function getPreFightChoice (fightOrFlight, enemy) {
     var selectionGood = false;
+    displayFangedRabbit();
     console.log("\nA " + enemy.name + " has appeared!");
     choiceIndex = ask.keyInSelect(preFightChoices, 'What will you do?: ');
     while (!selectionGood) {
