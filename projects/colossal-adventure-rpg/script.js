@@ -1,7 +1,31 @@
 var ask = require('readline-sync');
 
+function displayGameName() {
+console.log("\nWelcome to the awesome game: \n");
+console.log(" ____  ___  _      ___  ____  ____    _    _          _    ______     _______ _   _ _____ _   _ ____  _____ ");
+console.log("/ ___|/ _ \\| |    / _ \\/ ___|/ ___|  / \\  | |        / \\  |  _ \\ \\   / / ____| \\ | |_   _| | | |  _ \\| ____|");
+console.log("| |  | | | | |   | | | \\___ \\\\___ \\ / _ \\ | |       / _ \\ | | | \\ \\ / /|  _| |  \\| | | | | | | | |_) |  _|");
+console.log("| |__| |_| | |___| |_| |___) |___) / ___ \\| |___   / ___ \\| |_| |\\ V / | |___| |\\  | | | | |_| |  _ <| |___");
+console.log("\\____|\\___/|_____|\\___/|____/|____/_/   \\_\\_____| /_/   \\_\\____/  \\_/  |_____|_| \\_| |_|  \\___/|_| \\_\\_____|");
+}
+
 function walk() {
     return Math.floor(Math.random() * (enemies.length + 6));
+}
+
+function getPreFightChoice (fightOrFlight, enemy) {
+    var selectionGood = false;
+    console.log("\nA " + enemy.name + " has appeared!");
+    choiceIndex = ask.keyInSelect(preFightChoices, 'What will you do?: ');
+    while (!selectionGood) {
+        if (choiceIndex === -1) {
+            choiceIndex = ask.keyInSelect(preFightChoices,'Sorry, no cancelling. What will you do?: ');
+        } else if (preFightChoices[choiceIndex] === 'Attack' || preFightChoices[choiceIndex] === 'Run Away') {
+            fightOrFlight = preFightChoices[choiceIndex];
+            selectionGood = true;
+        }
+    }
+    return fightOrFlight;
 }
 
 function runAway() {
@@ -10,11 +34,22 @@ function runAway() {
 }
 
 function fight() {
+    getFightChoice();
     while (player.health > 0 && enemies[attackRandom].health > 0) {
+        itemChoice = useItem();
         attackEnemy();
         enemyAttack();
     }
     return;
+}
+
+function getFightChoice() {
+
+}
+
+function useItem() {
+    var itemChoice = "undefined";
+
 }
 
 function attackEnemy() {
@@ -29,6 +64,24 @@ function enemyAttack() {
         player.health -= enemyAttackPoints;
         console.log('The ' + enemies[attackRandom].name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
     }
+}
+
+function getPostFightChoice(gameOver) {
+    do {
+        var choiceIndex = ask.keyInSelect(postFightChoices, "What do you want to do?: ");
+
+        if (postFightChoices[choiceIndex] === "Display Your Info") {
+            showInfo();
+        } else if (postFightChoices[choiceIndex] === "End the Game") {
+            console.log("Thank you for playing. Good bye.");
+            gameOver = true;
+        } else if (choiceIndex === -1) {
+            console.log("\nSorry, you must make a choice.")
+        } else if (postFightChoices[choiceIndex] === "Keep Playing") {
+            break;
+        }
+    } while (postFightChoices[choiceIndex] !== "End the Game");
+    return gameOver;
 }
 
 function die() {
@@ -63,10 +116,12 @@ function Enemy (name, attackMin, attackMax, health, item) {
     this.item = item;
 }
 
+//*******************************************************************************************************
+
 var playerAttackPoints = 0;
 var enemyAttackPoints = 0;
 
-var possibleItems = ["black pearl", "red jewel", "magic staff", "knife", "axe", "magic potion"];
+var possibleItems = ["knife", "axe", "magic potion"];
 
 var player = new Player("", 5, 10, 50, []);
 
@@ -77,9 +132,15 @@ var enemies = [
 ];
 
 var gameOver = false;
-var choices = ["Keep Playing", "Display Your Info", "End the Game"];
 
-var name = ask.question('Welcome to the awesome game: << Colossal Adventure >>\n\n Enter your name: ');
+var preFightChoices = ["Attack", "Run Away"];
+var fightChoices = ["Attack", "Use Item"];
+var postFightChoices = ["Keep Playing", "Display Your Info", "End the Game"];
+
+//******************************************************************************************************
+
+displayGameName();
+var name = ask.question("\n Enter your name: ");
 
 player.name = name;
 
@@ -96,17 +157,10 @@ while (!gameOver) {
     if (attackRandom > 2) {
         console.log('\nIt was a peaceful walk. No enemies in sight.');
     } else {
-        var selectionGood = false;
-        var fightOrFlight = ask.question('\nA ' + enemies[attackRandom].name + ' has appeared! Press \'a\' to attack, or \'r\' to run: ');
-        while (!selectionGood) {
-            if (fightOrFlight !== 'a' && fightOrFlight !== 'r') {
-                fightOrFlight = ask.question('Press \'a\' to attack, or \'r\' to run: ');
-            } else {
-                selectionGood = true;
-            }
-        }
+        var fightOrFlight = "";
+        var attackOrRun = getPreFightChoice(fightOrFlight, enemies[attackRandom]);
 
-        if (fightOrFlight === 'r') {
+        if (attackOrRun === 'Run Away') {
             var survived = runAway();
 
             if (survived) {
@@ -118,25 +172,13 @@ while (!gameOver) {
         } else {
             fight();
             if (player.health > 0) {
-                console.log("You have defeated the " + enemies[attackRandom].name + ". After searching the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".\nIt is now added to your inventory. Good job!\n");
+                console.log("You have defeated the enemy! After searching the carcas of the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".\nIt is now added to your inventory. Good job!\n");
                 player.items.push(" " + enemies[attackRandom].item);
                 console.log("You receive an additonal 5 health points.");
                 player.health += 5;
 
-                do {
-                    var choiceIndex = ask.keyInSelect(choices, "What do you want to do?: ");
+                gameOver = getPostFightChoice(gameOver);
 
-                    if (choices[choiceIndex] === "Display Your Info") {
-                        showInfo();
-                    } else if (choices[choiceIndex] === "End the Game") {
-                        console.log("Thank you for playing. Good bye.");
-                        gameOver = true;
-                    } else if (choiceIndex === -1) {
-                        console.log("Sorry, you must make a choice.")
-                    } else if (choices[choiceIndex] === "Keep Playing") {
-                        break;
-                    }
-                } while (choices[choiceIndex] !== "End the Game");
             } else {
                 die();
                 gameOver = true;
