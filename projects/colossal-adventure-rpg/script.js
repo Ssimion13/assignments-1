@@ -139,15 +139,34 @@ var runAway = function() {
     return chance < 1.5;
 }
 
-var fight = function() {
-    getFightChoice();
+var fight = function(player, enemy) {
     while (player.health > 0 && currentEnemy.health > 0) {
-        //itemChoice = useItem();
-        attackEnemy();
-        enemyAttack();
+        var choice = getFightChoice();
+
+        if (choice === "Use Item") {
+            var itemToUse = getItemToUse(player);
+            if (itemToUse === "knife") {
+                enemy.health -= 15;
+                console.log("\nYou attack the " + enemy.name + " with your " + itemToUse + " and it loses 15 health points.\n");
+            } else if (itemToUse === "axe") {
+                enemy.health -= 25;
+                console.log("\nYou attack the " + enemy.name + " with your " + itemToUse + " and it loses 25 health points.\n");
+            } else if (itemToUse === "magic potion") {
+                player.health += 15;
+                console.log("\nYou drink the potion and you gain an addtional 15 health points.\n");
+            } else {
+                console.log("\nYou have no items to use!\n");
+                attackEnemy();
+            }
+            enemyAttack();
+        } else {
+            attackEnemy();
+            enemyAttack();
+        }
     }
     return;
 }
+
 
 var getEnemyName = function() {
     return enemyNames[Math.floor(Math.random() * enemyNames.length)];
@@ -187,19 +206,29 @@ var getEnemyItem = function(enemy) {
     return possibleItems[Math.floor(Math.random() * possibleItems.length)];
 }
 
-var getFightChoice = function() {
-
+var getFightChoice = function(player) {
+        var choiceIndex = ask.keyInSelect(fightChoices, "What do you want to do?: ");
+        while (choiceIndex !== -1) {
+            if (choiceIndex === -1) {
+                console.log("\nSorry, you must make a choice.")
+            } else {
+                return fightChoices[choiceIndex];
+            }
+        }
 }
 
-var useItem = function() {
-    var itemChoice = "undefined";
+var getItemToUse = function(player) {
+    if (player.items.length !== 0) {
+        var itemToUse = ask.keyInSelect(player.items, "Select an item to use?: ");
+        return player.items[itemToUse];
+    }
 
 }
 
 var attackEnemy = function() {
     playerAttackPoints = Math.floor(Math.random() * (player.attackMax - player.attackMin + 1)) + player.attackMin;
     currentEnemy.health -= playerAttackPoints;
-    console.log('You attack the ' + currentEnemy.name + ' and it loses ' + playerAttackPoints + ' health points.\n');
+    console.log('\nYou attack the ' + currentEnemy.name + ' and it loses ' + playerAttackPoints + ' health points.');
 }
 
 var enemyAttack = function() {
@@ -324,7 +353,7 @@ while (!gameOver) {
                 gameOver = true;
             }
         } else {
-            fight();
+            fight(player);
             if (player.health > 0) {
                 console.log("You have defeated the enemy! After searching the carcas of the " + currentEnemy.name + ", you find a " + currentEnemy.item + ".");
                 displayItem(currentEnemy.item);
