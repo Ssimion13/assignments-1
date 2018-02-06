@@ -9,16 +9,47 @@ function displayGameName() {
     console.log("\\____|\\___/|_____|\\___/|____/|____/_/   \\_\\_____| /_/   \\_\\____/  \\_/  |_____|_| \\_| |_|  \\___/|_| \\_\\_____|");
 }
 
-function displayKnife() {
+function displayItem(item) {
+    if (item === "knife") {
+        displayKnife();
+    } else if (item === "axe") {
+        displayAxe();
+    } else {
+        displayPotion();
+    }
+    return;
+}
 
+function displayKnife() {
+    console.log("    ___________ _____________");
+    console.log("   |           )._______.-'");
+    console.log("   `----------'");
+    return;
 }
 
 function displayAxe() {
-
+    console.log("    _________________.---.______");
+    console.log("   (_(______________(_o o_(____()");
+    console.log("                .___.'. .'.___.");
+    console.log("                \ o    Y    o /");
+    console.log("                 \ \__   __/ /");
+    console.log("                  '.__'-'__.'");
+    console.log("                      '''");
+    return;
 }
 
 function displayPotion() {
-
+    console.log("    _");
+    console.log("   {_}");
+    console.log("   |(|");
+    console.log("   |=|");
+    console.log("  /   \\");
+    console.log("  |.--|");
+    console.log("  ||  |");
+    console.log("  ||  |");
+    console.log("  |'--|");
+    console.log("  '-=-'");
+    return;
 }
 
 function displayFangedRabbit() {
@@ -26,36 +57,51 @@ function displayFangedRabbit() {
     console.log("   / \\\\..// \\");
     console.log("     ( oo ) ");
     console.log("      \\WW/");
-    //console.log("       ");
-
+    return;
 }
 
 function displaySnollygoster() {
-console.log("    .      .");
-console.log("    |\\____/|");
-console.log("   (\\|----|/)");
-console.log("    \\ 0  0 /");
-console.log("     |    |");
-console.log("  ___/\\../\\____");
-console.log(" /     --       \\");
-console.log("/  \\         /   \\");
-console.log("|    \\___/___/(   |");
-console.log("\\   /|  }{   | \\  )");
-console.log("\\  ||__}{__|  |  |");
-console.log(" \\  |;;;;;;;\\  \\ / \\_______");
-console.log("  \\ /;;;;;;;;| [,,[|======'");
-console.log("    |;;;;;;/ |     /");
-console.log("    ||;;|\\   |");
-console.log("    ||;;/|   /");
-console.log("    \\_|:||__|");
-console.log("     \\ ;||  /");
-console.log("     |= || =|");
-console.log("     |= /\\ =|");
-console.log("     /_/  \\_\\");
+    console.log("    .      .");
+    console.log("    |\\____/|");
+    console.log("   (\\|----|/)");
+    console.log("    \\ 0  0 /");
+    console.log("     |    |");
+    console.log("  ___/\\../\\____");
+    console.log(" /     --       \\");
+    console.log("/  \\         /   \\");
+    console.log("|    \\___/___/(   |");
+    console.log("\\   /|  }{   | \\  )");
+    console.log("\\  ||__}{__|  |  |");
+    console.log(" \\  |;;;;;;;\\  \\ / \\_______");
+    console.log("  \\ /;;;;;;;;| [,,[|======'");
+    console.log("    |;;;;;;/ |     /");
+    console.log("    ||;;|\\   |");
+    console.log("    ||;;/|   /");
+    console.log("    \\_|:||__|");
+    console.log("     \\ ;||  /");
+    console.log("     |= || =|");
+    console.log("     |= /\\ =|");
+    console.log("     /_/  \\_\\");
+    return;
 }
 
 function displayBloodyBones() {
-
+    console.log("    <>=======()");
+    console.log("   (/\\___   /|\\\\          ()==========<>_");
+    console.log("         \\_/ | \\\\        //|\\   ______/ \\)");
+    console.log("           \\_|  \\\\      // | \\_/");
+    console.log("             \\|\\/|\\_   //  /\\/");
+    console.log("              (oo)\\ \\_//  /");
+    console.log("             //_/\\_\\/ /  |");
+    console.log("            @@/  |=\\  \\  |");
+    console.log("                 \\_=\\_ \\ |");
+    console.log("                   \\==\\ \\|\\_");
+    console.log("                __(\\===\\(  )\\\\");
+    console.log("               (((~) __(_/   |");
+    console.log("                    (((~) \\  /");
+    console.log("                    ______/ /");
+    console.log("                    '------'");
+    return;
 }
 
 function walk() {
@@ -64,7 +110,13 @@ function walk() {
 
 function getPreFightChoice (fightOrFlight, enemy) {
     var selectionGood = false;
-    displayFangedRabbit();
+    if (enemy.name === "Fanged Rabbit") {
+        displayFangedRabbit();
+    } else if (enemy.name === "Snollygoster") {
+        displaySnollygoster();
+    } else {
+        displayBloodyBones();
+    }
     console.log("\nA " + enemy.name + " has appeared!");
     choiceIndex = ask.keyInSelect(preFightChoices, 'What will you do?: ');
     while (!selectionGood) {
@@ -90,7 +142,18 @@ function fight() {
         attackEnemy();
         enemyAttack();
     }
+    enemies[attackRandom].health = restoreEnemyHealth(enemies[attackRandom]);
     return;
+}
+
+function restoreEnemyHealth(enemy) {
+    if (enemy.name === "Fanged Rabbit") {
+        return 15;
+    } else if (enemy.name === "Snollygoster") {
+        return 25;
+    } else {
+        return 35;1
+    }
 }
 
 function getFightChoice() {
@@ -142,11 +205,11 @@ function showInfo() {
     console.log("\nName: " + player.name + "\nCurrent Health Points: " + player.health + "\nItems Inventory:" + player.items + "\n");
 }
 
-function enemyDie() {
+function createEnemy() {
 
 }
 
-function enemyCreation() {
+function enemyDies() {
 
 }
 
@@ -222,7 +285,9 @@ while (!gameOver) {
         } else {
             fight();
             if (player.health > 0) {
-                console.log("You have defeated the enemy! After searching the carcas of the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".\nIt is now added to your inventory. Good job!\n");
+                console.log("You have defeated the enemy! After searching the carcas of the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".");
+                displayItem(enemies[attackRandom].item);
+                console.log("\nIt is now added to your inventory. Good job!\n");
                 player.items.push(" " + enemies[attackRandom].item);
                 console.log("You receive an additonal 5 health points.");
                 player.health += 5;
