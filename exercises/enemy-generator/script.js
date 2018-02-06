@@ -1,4 +1,4 @@
-function Enemy () {
+function Enemy() {
     this.type = getEnemyType();
     this.hitPoints = getEnemyHitPoints(this.type);
     this.defense = this.hitPoints * 3;

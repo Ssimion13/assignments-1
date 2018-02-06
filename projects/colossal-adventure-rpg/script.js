@@ -31,8 +31,8 @@ function displayAxe() {
     console.log("    _________________.---.______");
     console.log("   (_(______________(_o o_(____()");
     console.log("                .___.'. .'.___.");
-    console.log("                \ o    Y    o /");
-    console.log("                 \ \__   __/ /");
+    console.log("                \\ o    Y    o /");
+    console.log("                 \\ \\__   __/ /");
     console.log("                  '.__'-'__.'");
     console.log("                      '''");
     return;
@@ -104,11 +104,14 @@ function displayBloodyBones() {
     return;
 }
 
-function walk() {
-    return Math.floor(Math.random() * (enemies.length + 6));
+//******************************************************************************************************
+
+var walk = function() {
+    return Math.floor(Math.random() * (enemyNames.length + 6));
 }
 
-function getPreFightChoice (fightOrFlight, enemy) {
+var getPreFightChoice = function(enemy) {
+    var fightOrFlight = "";
     var selectionGood = false;
     if (enemy.name === "Fanged Rabbit") {
         displayFangedRabbit();
@@ -118,6 +121,7 @@ function getPreFightChoice (fightOrFlight, enemy) {
         displayBloodyBones();
     }
     console.log("\nA " + enemy.name + " has appeared!");
+    displayEnemyInfo(currentEnemy);
     choiceIndex = ask.keyInSelect(preFightChoices, 'What will you do?: ');
     while (!selectionGood) {
         if (choiceIndex === -1) {
@@ -130,61 +134,88 @@ function getPreFightChoice (fightOrFlight, enemy) {
     return fightOrFlight;
 }
 
-function runAway() {
+var runAway = function() {
     var chance = Math.random() + 1;
     return chance < 1.5;
 }
 
-function fight() {
+var fight = function() {
     getFightChoice();
-    while (player.health > 0 && enemies[attackRandom].health > 0) {
-        itemChoice = useItem();
+    while (player.health > 0 && currentEnemy.health > 0) {
+        //itemChoice = useItem();
         attackEnemy();
         enemyAttack();
     }
-    enemies[attackRandom].health = restoreEnemyHealth(enemies[attackRandom]);
     return;
 }
 
-function restoreEnemyHealth(enemy) {
+var getEnemyName = function() {
+    return enemyNames[Math.floor(Math.random() * enemyNames.length)];
+}
+
+var getEnemyHealth = function(enemy) {
     if (enemy.name === "Fanged Rabbit") {
-        return 15;
-    } else if (enemy.name === "Snollygoster") {
-        return 25;
+        return Math.floor(Math.random() * (20 - 10 + 1) + 10);
+    } else if (enemy.name === "Prowler") {
+        return Math.floor(Math.random() * (30 - 20 + 1) + 20);
     } else {
-        return 35;1
+        return Math.floor(Math.random() * (40 - 30 + 1) + 30);
     }
 }
 
-function getFightChoice() {
+var getEnemyAttackMin = function(enemy) {
+    if (enemy.name === "Fanged Rabbit") {
+        return 2;
+    } else if (enemy.name === "Prowler") {
+        return 4;
+    } else {
+        return 5;
+    }
+}
+
+var getEnemyAttackMax = function(enemy) {
+    if (enemy.name === "Fanged Rabbit") {
+        return 4;
+    } else if (enemy.name === "Prowler") {
+        return 7;
+    } else {
+        return 9;
+    }
+}
+
+var getEnemyItem = function(enemy) {
+    return possibleItems[Math.floor(Math.random() * possibleItems.length)];
+}
+
+var getFightChoice = function() {
 
 }
 
-function useItem() {
+var useItem = function() {
     var itemChoice = "undefined";
 
 }
 
-function attackEnemy() {
+var attackEnemy = function() {
     playerAttackPoints = Math.floor(Math.random() * (player.attackMax - player.attackMin + 1)) + player.attackMin;
-    enemies[attackRandom].health -= playerAttackPoints;
-    console.log('You attack the ' + enemies[attackRandom].name + ' and it loses ' + playerAttackPoints + ' health points.\n');
+    currentEnemy.health -= playerAttackPoints;
+    console.log('You attack the ' + currentEnemy.name + ' and it loses ' + playerAttackPoints + ' health points.\n');
 }
 
-function enemyAttack() {
-    if (enemies[attackRandom].health > 0) {
-        enemyAttackPoints = Math.floor(Math.random() * (enemies[attackRandom].attackMax - enemies[attackRandom].attackMin + 1)) + enemies[attackRandom].attackMin;
+var enemyAttack = function() {
+    if (currentEnemy.health > 0) {
+        enemyAttackPoints = Math.floor(Math.random() * (currentEnemy.attackMax - currentEnemy.attackMin + 1)) + currentEnemy.attackMin;
         player.health -= enemyAttackPoints;
-        console.log('The ' + enemies[attackRandom].name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
+        console.log('The ' + currentEnemy.name + ' attacks back and you lose ' + enemyAttackPoints + ' health points.');
     }
 }
 
-function getPostFightChoice(gameOver) {
+var getPostFightChoice = function(gameOver) {
     do {
         var choiceIndex = ask.keyInSelect(postFightChoices, "What do you want to do?: ");
 
         if (postFightChoices[choiceIndex] === "Display Your Info") {
-            showInfo();
+            displayPlayerInfo();
         } else if (postFightChoices[choiceIndex] === "End the Game") {
             console.log("Thank you for playing. Good bye.");
             gameOver = true;
@@ -197,23 +228,36 @@ function getPostFightChoice(gameOver) {
     return gameOver;
 }
 
-function die() {
-    console.log('\nThe ' + enemies[attackRandom].name + ' ate you. You\'re dead.\n\nThanks for playing, Ryan!');
+var die = function() {
+    console.log('\nThe ' + currentEnemy.name + ' ate you. You\'re dead.\n\nThanks for playing, Ryan!');
+    return;
 }
 
-function showInfo() {
-    console.log("\nName: " + player.name + "\nCurrent Health Points: " + player.health + "\nItems Inventory:" + player.items + "\n");
+var displayPlayerInfo = function() {
+    console.log("\nName: " + player.name +
+        "\nCurrent Health Points: " + player.health +
+        "\nItems Inventory:" + player.items + "\n");
+    return;
 }
 
-function createEnemy() {
+var displayEnemyInfo = function(enemy) {
+    console.log("\nName: " + enemy.name +
+        "\nHealth Points: " + enemy.health +
+        "\nMinimum Attack Points: " + enemy.attackMin +
+        "\nMaximum Attack Points: " + enemy.attackMax);
+    return;
+}
+
+var createEnemy = function() {
+    var newEnemy = new Enemy();
+    return newEnemy;
+}
+
+var enemyDies = function() {
 
 }
 
-function enemyDies() {
-
-}
-
-function Player (name, attackMin, attackMax, health, items) {
+var Player = function(name, attackMin, attackMax, health, items) {
     this.name = name;
     this.attackMin = attackMin;
     this.attackMax = attackMax;
@@ -221,12 +265,12 @@ function Player (name, attackMin, attackMax, health, items) {
     this.items = items;
 }
 
-function Enemy (name, attackMin, attackMax, health, item) {
-    this.name = name;
-    this.attackMin = attackMin;
-    this.attackMax = attackMax;
-    this.health = health;
-    this.item = item;
+var Enemy = function() {
+    this.name = getEnemyName();
+    this.attackMin = getEnemyAttackMin(this);
+    this.attackMax = getEnemyAttackMax(this);
+    this.health = getEnemyHealth(this);
+    this.item = getEnemyItem();
 }
 
 //*******************************************************************************************************
@@ -234,15 +278,10 @@ function Enemy (name, attackMin, attackMax, health, item) {
 var playerAttackPoints = 0;
 var enemyAttackPoints = 0;
 
-var possibleItems = ["knife", "axe", "magic potion"];
-
 var player = new Player("", 5, 10, 50, []);
 
-var enemies = [
-    enemyOne = new Enemy("Fanged Rabbit", 2, 4, 15, possibleItems[Math.floor(Math.random() * possibleItems.length)]),
-    enemyTwo = new Enemy("Snollygoster", 4, 7, 25, possibleItems[Math.floor(Math.random() * possibleItems.length)]),
-    enemyThree = new Enemy("Bloody Bones", 5, 9, 35, possibleItems[Math.floor(Math.random() * possibleItems.length)])
-];
+var enemyNames = ["Fanged Rabbit", "Snollygoster", "Bloody Bones"];
+var possibleItems = ["knife", "axe", "magic potion"];
 
 var gameOver = false;
 
@@ -268,16 +307,18 @@ while (!gameOver) {
     var attackRandom = walk();
 
     if (attackRandom > 2) {
-        console.log('\nIt was a peaceful walk. No enemies in sight.');
+        console.log('\nIt was a peaceful walk. No enemies in sight. You gained an addtional 2 health points.');
+        player.health += 2;
     } else {
+        var currentEnemy = createEnemy();
         var fightOrFlight = "";
-        var attackOrRun = getPreFightChoice(fightOrFlight, enemies[attackRandom]);
+        var attackOrRun = getPreFightChoice(currentEnemy);
 
         if (attackOrRun === 'Run Away') {
             var survived = runAway();
 
             if (survived) {
-                console.log('\nYou got away! But the ' + enemies[attackRandom].name + ' attacks from behind and you lose ' + (Math.floor(Math.random() * (enemies[attackRandom].attackMax) + enemies[attackRandom].attackMin)) + ' health points.');
+                console.log('\nYou got away! But the ' + currentEnemy.name + ' attacks from behind and you lose ' + (Math.floor(Math.random() * (currentEnemy.attackMax) + currentEnemy.attackMin)) + ' health points.');
             } else {
                 die();
                 gameOver = true;
@@ -285,10 +326,10 @@ while (!gameOver) {
         } else {
             fight();
             if (player.health > 0) {
-                console.log("You have defeated the enemy! After searching the carcas of the " + enemies[attackRandom].name + ", you find a " + enemies[attackRandom].item + ".");
-                displayItem(enemies[attackRandom].item);
+                console.log("You have defeated the enemy! After searching the carcas of the " + currentEnemy.name + ", you find a " + currentEnemy.item + ".");
+                displayItem(currentEnemy.item);
                 console.log("\nIt is now added to your inventory. Good job!\n");
-                player.items.push(" " + enemies[attackRandom].item);
+                player.items.push(" " + currentEnemy.item);
                 console.log("You receive an additonal 5 health points.");
                 player.health += 5;
 
