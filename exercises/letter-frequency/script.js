@@ -25,18 +25,78 @@
 // }
 
 function letterFrequency(str) {
-    var onceStr = {};
+    var unique = {};
 
     for (var i = 0; i < str.length; i++) {
         var char = str.charAt(i);
-        if (onceStr[char]) {
-            onceStr[char]++;
+        if (unique[char]) {
+            unique[char]++;
         } else {
-            onceStr[char] = 1;
+            unique[char] = 1;
         }
     }
-    return onceStr;
+    return unique;
 }
 
 // getLetterFrequency("slimy smelly solution");
-console.log(letterFrequency("slimy smelly solution"));
+//console.log(letterFrequency("slimy smelly solution"));
+
+
+
+// Sorty-McSortSort
+var users = [
+    {
+        firstName: "Billy",
+        lastName: "Madison",
+        age: 32
+    },
+    {
+        firstName: "Tommy",
+        lastName: "Pickles",
+        age: 32
+    },
+    {
+        firstName: "Ray",
+        lastName: "Charles",
+        age: 32
+    },
+    {
+        firstName: "Lady",
+        lastName: "Gaga",
+        age: 32
+    },
+    {
+        firstName: "Elizabeth",
+        lastName: "Taylor",
+        age: 32
+    },
+    {
+        firstName: "Led",
+        lastName: "Zeplin",
+        age: 32
+    },
+    {
+        firstName: "Micael",
+        lastName: "Johnson",
+        age: 32
+    },
+    {
+        firstName: "Keri",
+        lastName: "Strug",
+        age: 32
+    },
+    {
+        firstName: "Chucky",
+        lastName: "Finster",
+        age: 32
+    },
+    {
+        firstName: "Angelica",
+        lastName: "Pickles",
+        age: 32
+    },
+]
+
+var sortAscending = true;
+
+var sortedArr = users.sort()
