@@ -258,7 +258,7 @@ var getPostFightChoice = function(gameOver) {
 }
 
 var die = function() {
-    console.log('\nThe ' + currentEnemy.name + ' ate you. You\'re dead.\n\nThanks for playing, ' + player + '!');
+    console.log('\nThe ' + currentEnemy.name + ' ate you. You\'re dead.\n\nThanks for playing, ' + player.name + '!');
     return;
 }
 
