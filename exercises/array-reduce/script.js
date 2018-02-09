@@ -57,7 +57,7 @@ console.log(shoppingSpree(wishlist)); // 227005
 
 function flatten(arr) {
     return arr.reduce(function(newArr, item) {
-        return item.concat(item.join());
+        return newArr += [...item] + ",";
     }, []);
 }
 
