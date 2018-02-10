@@ -1,3 +1,38 @@
 .container {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100, 1fr));
+    grid-template-rows: repeat(3, 100px);
+    /* grid-template-rows: repeat(2, 100px); */
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
 }
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+html, body {
+  margin: 10% 20% 10% 20%;
+}
+
+.red {
+    background-color: red;
+    border-radius: 5px;
+}
+
+.blue {
+    background-color: blue;
+    border-radius: 7px;
+}
+
+/*
+html {
+    margin: 0px;
+}
+
+body {
+    margin: 0px;
+} */
