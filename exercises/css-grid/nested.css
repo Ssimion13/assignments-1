@@ -1,0 +1,45 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-gap: 10px;
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: 5px;
+}
+
+html, body {
+    margin: 185px;
+}
+
+.red {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    height: 100px;
+}
+
+.blue {
+    background-color: blue;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2/4;
+}
+
+.green {
+    background-color: green;
+    grid-column-start: 3;
+    grid-column-end: -1;
+    height: 100px;
+}
+
+.purple {
+    background-color: purple;
+    grid-column-start: 3;
+    grid-column-end: -1;
+    height: 100px;
+}

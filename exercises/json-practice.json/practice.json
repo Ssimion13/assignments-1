@@ -1,0 +1,41 @@
+{
+    "name": "Ryan Sherrel",
+    "age": 45,
+    "hairColor": "grey",
+    "eyeColor": "brown",
+    "Address": [
+        "730 Balm Street",
+        "Walla Walla",
+        "WA",
+        "99362"
+    ],
+    "favoriteFoods": [
+        "tacos",
+        "pho",
+        "meats"
+    ]
+}
+
+{
+    "pets": [{
+            "type": "dog",
+            "name": "Kiki",
+            "age": "2 years",
+            "color": "black and white",
+            "weight": "14 lbs"
+        },
+        {
+            "type": "dog",
+            "name": "Fido",
+            "age": "9 years",
+            "color": "grey",
+            "weight": "87 lbs"
+        },
+        {
+            "type": "cat",
+            "name": "Oberon",
+            "age": "6 years",
+            "color": "brown",
+            "weight": "15 lbs"
+        }]
+}

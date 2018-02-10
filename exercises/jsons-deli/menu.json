@@ -1,0 +1,151 @@
+{
+    "appetizers": [
+        {
+            "name": "Jalapeno Poppers",
+            "ingredients": [
+                "jalapeno peppers",
+                "cheese",
+                "bacon"
+            ],
+            "description": "deep-fried jalapenos stuffed with cheese and bacon"
+        },
+        {
+            "name": "Wings",
+            "ingredients": [
+                "chicken wings",
+                "buffalo sauce"
+            ],
+            "description": "deep-fried chicken wings tossed in buffalo sauce"
+        },
+        {
+            "name": "Mozzarella Sticks",
+            "ingredients": [
+                "mozzarella",
+                "egg",
+                "bread crumbs"
+            ],
+            "description": "deep-fried, breaded mozzarella"
+        }
+
+    ],
+    "coldSandwiches": [
+        {
+            "name": "Ham on Rye",
+            "ingredients": [
+                "ham",
+                "swiss",
+                "bacon",
+                "rye bread"
+            ],
+            "description": "stacked high with ham, swiss, and bacon"
+        },
+        {
+            "name": "Turkey on Wheat",
+            "ingredients": [
+                "Turkey",
+                "swiss",
+                "bacon",
+                "whole-grain wheat bread"
+            ],
+            "description": "stacked high with turkey, swiss, and bacon"
+        },
+        {
+            "name": "Pastrami on Rye",
+            "ingredients": [
+                "Pastrami",
+                "swiss",
+                "bacon",
+                "rye bread"
+            ],
+            "description": "stacked high with pastrami, swiss, and bacon"
+        }
+    ],
+    "hotSandwiches": [
+        {
+            "name": "Reuben",
+            "ingredients": [
+                "pastrami",
+                "swiss",
+                "saurkraut",
+                "thousand island",
+                "rye bread"
+            ],
+            "description": "grilled and stacked high with pastrami, swiss, and kraut"
+        },
+        {
+            "name": "Grilled Cheese",
+            "ingredients": [
+                "cheddar",
+                "havarti",
+                "whole-grain wheat bread",
+                "butter"
+            ],
+            "description": "stacked high with cheese, and grilled golden brown"
+        },
+        {
+            "name": "Veggie Reuben",
+            "ingredients": [
+                "portabello mushroom",
+                "swiss",
+                "saurkraut",
+                "thousand island",
+                "rye bread"
+            ],
+            "description": "grilled and stacked high with mushrooms, swiss, and kraut"
+        }
+
+    ],
+    "desserts": [
+        {
+            "name": "Sopitas",
+            "ingredients": [
+                "fry bread",
+                "cinnamon",
+                "honey"
+            ],
+            "description": "deep-fried fry bread with cinnamon and honey"
+        },
+        {
+            "name": "Vanilla Ice Cream",
+            "ingredients": [
+                "milk",
+                "cream",
+                "sugar",
+                "vanilla extract"
+            ],
+            "description": "cold and creamy with a high butter fat content"
+        },
+        {
+            "name": "assorted chocolates",
+            "ingredients": [
+                "cocoa",
+                "milk",
+                "honey"
+            ],
+            "description": "dark and delicious"
+        }
+    ],
+    "drinks": [
+        {
+            "name": "coffee",
+            "ingredients": [
+                "coffee"
+            ],
+            "description": "locally roasted and brewed fresh"
+        },
+        {
+            "name": "Iced Tea",
+            "ingredients": [
+                "tea"
+            ],
+            "description": "freshly-brewed oolong"
+        },
+        {
+            "name": "Mild",
+            "ingredients": [
+                "milk"
+            ],
+            "description": "locally sourced fresh from the udder"
+        }
+    ]
+}
