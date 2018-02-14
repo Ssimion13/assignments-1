@@ -28,10 +28,10 @@ const {location, duration} = vacation;
 
 console.log(`We're going to have a good time in ${location} for ${duration}`);
 
-//
-// const firstItem = items[0];
-//
-// const [firstItem] = items;
+
+const firstItem = items[0];
+
+const [firstItem] = items;
 
 
 const favoriteActivitiesInOrder = ["magnets", "snowboarding", "philanthropy", "janitor work", "eating"];
@@ -56,7 +56,7 @@ console.log(combineAnimals(...realAnimals, ...magicalAnimals, ...mysteriousAnima
 // ["dog", "cat", "mouse", "jackolope", "platypus"]
 
 
-var numbers = [a,b,c,d,e];
+var numbers = [2,3,4,5,6];
 
 function product(...numbers) {
   return numbers.reduce(function(acc, number) {
@@ -65,6 +65,29 @@ function product(...numbers) {
 }
 
 
-function unshift(array, a, b, c, d, e) {
-  return [a, b, c, d, e].concat(array);
+function unshift(array,...numbers) {
+  return [...array].concat(...numbers);
 }
+
+let myArr = [1, 8];
+
+console.log(unshift(myArr, numbers));
+
+
+function populatePeople(names){
+    return names.map(function(name){
+        name = name.split(" ");
+        const [firstName, lastName] = name;
+        return {
+            firstName: firstName,
+            lastName: lastName
+        }
+    })
+}
+
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]));
+//[
+//  {firstName: "Frank", lastName: "Peterson"},
+//  {firstName: "Suzy", lastName: "Degual"},
+//  {firstName: "Liza", lastName: "Jones"},
+//]

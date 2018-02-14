@@ -15,7 +15,8 @@ const title = document.getElementById('title');
 const description = document.getElementById('description');
 const price = document.getElementById('price');
 const imgUrl = document.getElementById('imgUrl');
-const isComplete = document.getElementById('completed');
+const isComplete = document.getElementById('completed').checked;
+
 
 document.getElementById('add').addEventListener('click', function(e) {
     e.preventDefault();
@@ -24,31 +25,12 @@ document.getElementById('add').addEventListener('click', function(e) {
         description: description.value,
         price: price.value,
         imgUrl: imgUrl.value,
-        completed: false
     };
     axios.post("https://api.vschool.io/ryan/todo/", newTodo);
 })
 
 document.getElementById('delete').addEventListener('click', function(e) {
     e.preventDefault();
-    var newTodo = {
-        title: title.value,
-        description: description.value,
-        price: price.value,
-        imgUrl: imgUrl.value,
-        completed: false
-    };
-    axios.delete("https://api.vschool.io/ryan/todo/", newTodo);
-})
-
-document.getElementById('add').addEventListener('click', function(e) {
-    e.preventDefault();
-    var newTodo = {
-        title: title.value,
-        description: description.value,
-        price: price.value,
-        imgUrl: imgUrl.value,
-        completed: false
-    };
-    axios.post("https://api.vschool.io/ryan/todo/", newTodo);
+    var itemId = document.getElementById('id');
+    axios.delete(`https://api.vschool.io/ryan/todo/${itemId.value}`);
 })
