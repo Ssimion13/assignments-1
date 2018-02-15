@@ -2,6 +2,25 @@ a {
     text-decoration: none;
 }
 
+.appContainer {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px auto 100px;
+    position: relative;
+}
+
+.bodyBox {
+    grid-column: 1/-1;
+    background: url("https://images.unsplash.com/photo-1486334803289-1623f249dd1e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=14fad02f7a44318650b93dd27fc8435b&auto=format&fit=crop&w=1099&q=80");
+    background-size: cover;
+}
+
+.nav {
+    display: flex;
+    grid-column: 1/-1;
+}
+
 .nav ul {
     display: flex;
     flex-direction: row;
@@ -12,6 +31,25 @@ a {
     height: 100px;
     width: 100%;
     align-items: center;
+    margin: 0;
+}
+
+.footer {
+    display: flex;
+    grid-column: 1/-1;
+}
+
+.footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+    background-color: lightblue;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    margin: 0;
 }
 
 body {
