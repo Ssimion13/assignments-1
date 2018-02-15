@@ -1,5 +1,7 @@
 a {
     text-decoration: none;
+    color: white;
+    font-family: timeburner;
 }
 
 .appContainer {
@@ -11,9 +13,23 @@ a {
 }
 
 .bodyBox {
+    color: white;
+    opacity: 0.7;
     grid-column: 1/-1;
     background: url("https://images.unsplash.com/photo-1486334803289-1623f249dd1e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=14fad02f7a44318650b93dd27fc8435b&auto=format&fit=crop&w=1099&q=80");
     background-size: cover;
+    background-position: left;
+}
+
+.bodyBox h3 {
+    margin: 0;
+    padding-top: 25px;
+    padding-left: 75px;
+    color: white;
+    font-family: timeburner;
+    font-size: 60px;
+    text-align: left;
+
 }
 
 .nav {
@@ -22,12 +38,13 @@ a {
 }
 
 .nav ul {
+    font-family: verdana, sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 0;
     list-style: none;
-    background-color: lightblue;
+    background-color: black;
     height: 100px;
     width: 100%;
     align-items: center;
@@ -40,12 +57,13 @@ a {
 }
 
 .footer ul {
+    font-family: verdana, sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 0;
     list-style: none;
-    background-color: lightblue;
+    background-color: black;
     height: 100px;
     width: 100%;
     align-items: center;
