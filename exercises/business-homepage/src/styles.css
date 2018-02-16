@@ -38,6 +38,7 @@ h3 {
     font-family: timeburner;
     font-size: 60px;
     text-align: left;
+    text-shadow: 2px 3px black;
 }
 
 .bodyBox ul {
