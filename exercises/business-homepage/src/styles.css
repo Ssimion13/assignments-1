@@ -4,6 +4,14 @@ a {
     font-family: timeburner;
 }
 
+p {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
 .appContainer {
     height: 100vh;
     display: grid;
@@ -25,11 +33,25 @@ a {
     margin: 0;
     padding-top: 25px;
     padding-left: 75px;
-    color: white;
+    color: red;
+    opacity: 0.7;
     font-family: timeburner;
     font-size: 60px;
     text-align: left;
+}
 
+.bodyBox ul {
+    display: grid;
+    grid-column: 8/-1;
+    font-family: verdana, sans-serif;
+    font-size: 18px;
+    line-height: 2;
+    padding-left: 60%;
+}
+
+.bodyBox li {
+    font-style: italic;
+    list-style: none;
 }
 
 .nav {
@@ -54,11 +76,7 @@ a {
 .footer {
     display: flex;
     grid-column: 1/-1;
-}
-
-.footer ul {
     font-family: verdana, sans-serif;
-    display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 0;
@@ -66,11 +84,33 @@ a {
     background-color: black;
     height: 100px;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
     margin: 0;
+}
+
+.footer h3 {
+    color: white;
+    text-align: center;
+}
+
+.lowFooter p a {
+    color: white;
+    text-align: right;
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+@media (min-width: 800px) {
+    .nav ul {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 800px) {
+    .bodyBox ul {
+        padding-left: 20%;
+    }
 }

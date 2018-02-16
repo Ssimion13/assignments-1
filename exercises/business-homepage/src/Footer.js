@@ -3,15 +3,13 @@ import React from 'react';
 function Footer() {
     return (
         <div className="footer">
-            <ul>
-                <li><a href="">Link One</a></li>
-                <li><a href="">Link Two</a></li>
-                <li><a href="">Link Three</a></li>
-                <li><a href="">Link Four</a></li>
-                <li><a href="">Link Five</a></li>
-            </ul>
-        </div>
-    )
+            <div>
+                <h3>Gig Nation Inc</h3>
+                <div className="lowFooter">
+                    <p>123 Some Street, New York, NY 10015</p>
+                </div>
+            </div>
+        </div>)
 }
 
 export default Footer;
