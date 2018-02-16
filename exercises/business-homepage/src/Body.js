@@ -1,13 +1,20 @@
 import React from 'react';
 
 function Body() {
+    const styles = {
+        backgroundColor: "#F0117F",
+        opacity: "0.5"
+    }
+
+    const thisIsMyContent = "Gig Nation"
+
     return (
         <div className="bodyBox">
             <div>
-                <h3>Gig Nation</h3>
+                <h3 style={styles}>{thisIsMyContent}</h3>
             </div>
-            <div>
-                <ul>
+            <div className="servicesBox">
+                <ul style={{color: "white"}}>
                     <li>Quality Instruments</li>
                     <li>Instrument Repair</li>
                     <li>Sweet Sound Systems</li>

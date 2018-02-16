@@ -27,14 +27,27 @@ h3 {
     background: url("https://images.unsplash.com/photo-1486334803289-1623f249dd1e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=14fad02f7a44318650b93dd27fc8435b&auto=format&fit=crop&w=1099&q=80");
     background-size: cover;
     background-position: left;
+    position: relative;
+}
+
+.servicesBox {
+    display: flex;
+    position: absolute;
+    height: 400px;
+    width: 330px;
+    background-color: #F0117F30;
+    /* opacity: 0.2; */
+    left: 65%;
+    top: 35%;
+    border-radius: 7px;
 }
 
 .bodyBox h3 {
     margin: 0;
-    padding-top: 25px;
+    padding-top: 50px;
     padding-left: 75px;
-    color: red;
-    opacity: 0.7;
+    /* color: red; */
+    /* opacity: 0.7; */
     font-family: timeburner;
     font-size: 60px;
     text-align: left;
@@ -45,14 +58,18 @@ h3 {
     display: grid;
     grid-column: 8/-1;
     font-family: verdana, sans-serif;
-    font-size: 18px;
-    line-height: 2;
-    padding-left: 60%;
+    font-size: 20px;
+    line-height: 2.5;
+    padding-left: 15px;
+    /* padding-top: 120px; */
+    text-shadow: 2px 3px black;
 }
 
 .bodyBox li {
     font-style: italic;
     list-style: none;
+    text-align: left;
+    padding-left: 0;
 }
 
 .nav {
@@ -110,8 +127,15 @@ body {
     }
 }
 
+@media (max-width: 1175px) {
+    .servicesBox {
+        left: 50%;
+    }
+}
+
 @media (max-width: 800px) {
-    .bodyBox ul {
-        padding-left: 20%;
+    .servicesBox {
+        left: 10%;
+        /* padding-top: 220px; */
     }
 }
