@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    position: relative;
+}
+
+.vacaTile {
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: verdana;
+    margin: 20px;
+    border-radius: 25px;
+    height: 600px;
+    width: 80%;
+    position: relative;
+    left: 8%;
+    box-shadow: 15px 15px 15px -10px;
+}
+
+.vacaTile img {
+    height: 400px;
+    width: 600px;
+}
+
+.vacaTile h1 {
+    margin: 0;
+    padding-top: 20px;
+}
