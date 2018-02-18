@@ -113,7 +113,7 @@ label {
 .divs {
     position: relative;
     display: inline-block;
-    border-radius: 15%;
+    border-radius: 10px;
     height: 300px;
     width: 94px;
 }

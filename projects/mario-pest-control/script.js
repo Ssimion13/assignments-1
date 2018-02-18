@@ -1,4 +1,4 @@
-document.marioForm.addEventListener("submit", function(e) {
+document.marioForm.addEventListener("submit", e => {
     e.preventDefault();
 
     var num1 = document.marioForm.goombasCaught.value;
