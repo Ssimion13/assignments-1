@@ -1,6 +1,6 @@
 var ask = require('readline-sync');
 
-function displayGameName() {
+const displayGameName = () => {
     console.log("\nWelcome to the awesome game: \n");
     console.log(" ____  ___  _      ___  ____  ____    _    _          _    ______     _______ _   _ _____ _   _ ____  _____ ");
     console.log("/ ___|/ _ \\| |    / _ \\/ ___|/ ___|  / \\  | |        / \\  |  _ \\ \\   / / ____| \\ | |_   _| | | |  _ \\| ____|");
@@ -9,7 +9,7 @@ function displayGameName() {
     console.log("\\____|\\___/|_____|\\___/|____/|____/_/   \\_\\_____| /_/   \\_\\____/  \\_/  |_____|_| \\_| |_|  \\___/|_| \\_\\_____|");
 }
 
-function displayItem(item) {
+const displayItem = item => {
     if (item === "knife") {
         displayKnife();
     } else if (item === "axe") {
@@ -20,14 +20,14 @@ function displayItem(item) {
     return;
 }
 
-function displayKnife() {
+const displayKnife = () => {
     console.log("    ___________ _____________");
     console.log("   |           )._______.-'");
     console.log("   `----------'");
     return;
 }
 
-function displayAxe() {
+const displayAxe = () => {
     console.log("    _________________.---.______");
     console.log("   (_(______________(_o o_(____()");
     console.log("                .___.'. .'.___.");
@@ -38,7 +38,7 @@ function displayAxe() {
     return;
 }
 
-function displayPotion() {
+const displayPotion = () => {
     console.log("    _");
     console.log("   {_}");
     console.log("   |(|");
@@ -52,7 +52,7 @@ function displayPotion() {
     return;
 }
 
-function displayFangedRabbit() {
+const displayFangedRabbit = () => {
     console.log("    __    __");
     console.log("   / \\\\..// \\");
     console.log("     ( oo ) ");
@@ -60,7 +60,7 @@ function displayFangedRabbit() {
     return;
 }
 
-function displaySnollygoster() {
+const displaySnollygoster = () => {
     console.log("    .      .");
     console.log("    |\\____/|");
     console.log("   (\\|----|/)");
@@ -85,7 +85,7 @@ function displaySnollygoster() {
     return;
 }
 
-function displayBloodyBones() {
+const displayBloodyBones = () => {
     console.log("    <>=======()");
     console.log("   (/\\___   /|\\\\          ()==========<>_");
     console.log("         \\_/ | \\\\        //|\\   ______/ \\)");
@@ -106,11 +106,11 @@ function displayBloodyBones() {
 
 //******************************************************************************************************
 
-var walk = function() {
+var walk = () => {
     return Math.floor(Math.random() * (enemyNames.length + 6));
 }
 
-var getPreFightChoice = function(enemy) {
+var getPreFightChoice = enemy => {
     var fightOrFlight = "";
     var selectionGood = false;
     if (enemy.name === "Fanged Rabbit") {
@@ -134,12 +134,12 @@ var getPreFightChoice = function(enemy) {
     return fightOrFlight;
 }
 
-var runAway = function() {
+var runAway = () => {
     var chance = Math.random() + 1;
     return chance < 1.5;
 }
 
-var fight = function(player, enemy) {
+var fight = (player, enemy) => {
     while (player.health > 0 && currentEnemy.health > 0) {
         var choice = getFightChoice();
 
@@ -168,11 +168,11 @@ var fight = function(player, enemy) {
 }
 
 
-var getEnemyName = function() {
+var getEnemyName = () => {
     return enemyNames[Math.floor(Math.random() * enemyNames.length)];
 }
 
-var getEnemyHealth = function(enemy) {
+var getEnemyHealth = enemy => {
     if (enemy.name === "Fanged Rabbit") {
         return Math.floor(Math.random() * (20 - 10 + 1) + 10);
     } else if (enemy.name === "Prowler") {
@@ -182,7 +182,7 @@ var getEnemyHealth = function(enemy) {
     }
 }
 
-var getEnemyAttackMin = function(enemy) {
+var getEnemyAttackMin = enemy => {
     if (enemy.name === "Fanged Rabbit") {
         return 2;
     } else if (enemy.name === "Prowler") {
@@ -192,7 +192,7 @@ var getEnemyAttackMin = function(enemy) {
     }
 }
 
-var getEnemyAttackMax = function(enemy) {
+var getEnemyAttackMax = enemy => {
     if (enemy.name === "Fanged Rabbit") {
         return 4;
     } else if (enemy.name === "Prowler") {
@@ -202,11 +202,11 @@ var getEnemyAttackMax = function(enemy) {
     }
 }
 
-var getEnemyItem = function(enemy) {
+var getEnemyItem = enemy => {
     return possibleItems[Math.floor(Math.random() * possibleItems.length)];
 }
 
-var getFightChoice = function(player) {
+var getFightChoice = player => {
         var choiceIndex = ask.keyInSelect(fightChoices, "What do you want to do?: ");
         while (choiceIndex !== -1) {
             if (choiceIndex === -1) {
@@ -217,7 +217,7 @@ var getFightChoice = function(player) {
         }
 }
 
-var getItemToUse = function(player) {
+var getItemToUse = player => {
     if (player.items.length !== 0) {
         var itemToUse = ask.keyInSelect(player.items, "Select an item to use?: ");
         return player.items[itemToUse];
@@ -225,13 +225,13 @@ var getItemToUse = function(player) {
 
 }
 
-var attackEnemy = function() {
+var attackEnemy = () => {
     playerAttackPoints = Math.floor(Math.random() * (player.attackMax - player.attackMin + 1)) + player.attackMin;
     currentEnemy.health -= playerAttackPoints;
     console.log('\nYou attack the ' + currentEnemy.name + ' and it loses ' + playerAttackPoints + ' health points.');
 }
 
-var enemyAttack = function() {
+var enemyAttack = () => {
     if (currentEnemy.health > 0) {
         enemyAttackPoints = Math.floor(Math.random() * (currentEnemy.attackMax - currentEnemy.attackMin + 1)) + currentEnemy.attackMin;
         player.health -= enemyAttackPoints;
@@ -239,7 +239,7 @@ var enemyAttack = function() {
     }
 }
 
-var getPostFightChoice = function(gameOver) {
+var getPostFightChoice = gameOver => {
     do {
         var choiceIndex = ask.keyInSelect(postFightChoices, "What do you want to do?: ");
 
@@ -257,19 +257,19 @@ var getPostFightChoice = function(gameOver) {
     return gameOver;
 }
 
-var die = function() {
+var die = () => {
     console.log('\nThe ' + currentEnemy.name + ' ate you. You\'re dead.\n\nThanks for playing, ' + player.name + '!');
     return;
 }
 
-var displayPlayerInfo = function() {
+var displayPlayerInfo = () => {
     console.log("\nName: " + player.name +
         "\nCurrent Health Points: " + player.health +
         "\nItems Inventory:" + player.items + "\n");
     return;
 }
 
-var displayEnemyInfo = function(enemy) {
+var displayEnemyInfo = enemy => {
     console.log("\nName: " + enemy.name +
         "\nHealth Points: " + enemy.health +
         "\nMinimum Attack Points: " + enemy.attackMin +
@@ -277,16 +277,16 @@ var displayEnemyInfo = function(enemy) {
     return;
 }
 
-var createEnemy = function() {
+var createEnemy = () => {
     var newEnemy = new Enemy();
     return newEnemy;
 }
 
-var enemyDies = function() {
+var enemyDies = () => {
 
 }
 
-var Player = function(name, attackMin, attackMax, health, items) {
+var Player = function (name, attackMin, attackMax, health, items) {
     this.name = name;
     this.attackMin = attackMin;
     this.attackMax = attackMax;
