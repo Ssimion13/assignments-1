@@ -1,0 +1,9 @@
+.friendEntry {
+    width: 300px;
+    border: black solid 1px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    /* padding-left: 10px; */
+    text-align: center;
+    margin-left: 40%;
+}
