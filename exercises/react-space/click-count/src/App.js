@@ -49,7 +49,7 @@ class App extends Component {
     squareRoot() {
         this.setState(prevState => {
             return {
-                count: Math.sqrt(Math.abs(prevState.count))
+                count: (Math.sqrt(Math.abs(prevState.count))).toFixed(2)
             }
         })
     }
@@ -77,17 +77,15 @@ class App extends Component {
         }
 
         return (
-            <div className="masterContainer" style={containerStyle}>
+            <div className="container" style={containerStyle}>
                 <h1 style={numStyle}>{this.state.count}</h1>
-                <div className="container">
-                    <div className="buttons">
-                        <button onClick={this.addOne}>+</button>
-                        <button onClick={this.subtractOne}>-</button>
-                        <button onClick={this.double}>X2</button>
-                        <button onClick={this.half}>/2</button>
-                        <button onClick={this.squareRoot}>SqRt</button>
-                        <button onClick={this.zeroOut}>zero out</button>
-                    </div>
+                <div className="buttons">
+                    <button onClick={this.addOne}>+</button>
+                    <button onClick={this.subtractOne}>-</button>
+                    <button onClick={this.double}>X2</button>
+                    <button onClick={this.half}>/2</button>
+                    <button onClick={this.squareRoot}>SqRt</button>
+                    <button onClick={this.zeroOut}>zero out</button>
                 </div>
             </div>
         )
