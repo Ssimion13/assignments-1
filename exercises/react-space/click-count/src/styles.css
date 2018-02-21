@@ -1,0 +1,26 @@
+.container {
+    height: 300px;
+    width: 1000px;
+    border: 1px dashed red;
+    display: flex;
+    /* align-items: center; */
+    width: 50%;
+    margin: 0 auto;
+}
+
+.container > h1 {
+    padding-right: 10%;
+}
+.conatiner > .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.container > button {
+    min-width: 60px;
+    min-height: 60px;
+    font-size: 30px;
+}

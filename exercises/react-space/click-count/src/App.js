@@ -9,7 +9,7 @@ class App extends Component {
         this.addOne = this.addOne.bind(this)
         this.subtractOne = this.subtractOne.bind(this)
         this.double = this.double.bind(this)
-        this.triple = this.triple.bind(this)
+        this.half = this.half.bind(this)
         this.zeroOut = this.zeroOut.bind(this)
         this.squareRoot = this.squareRoot.bind(this)
     }
@@ -38,10 +38,10 @@ class App extends Component {
         })
     }
 
-    triple() {
+    half() {
         this.setState(prevState => {
             return {
-                count: prevState.count * 3
+                count: Math.round(prevState.count / 2)
             }
         })
     }
@@ -63,15 +63,32 @@ class App extends Component {
     }
 
     render() {
+        const numStyle = {};
+        if (this.state.count > -1) {
+            numStyle.color = "black";
+        } else {
+            numStyle.color = "purple";
+        }
+        const containerStyle = {};
+        if (this.state.count > -1) {
+            containerStyle.backgroundColor = "lightblue";
+        } else {
+            containerStyle.backgroundColor = "red";
+        }
+
         return (
-            <div>
-            <h1>{this.state.count}</h1>
-            <button onClick={this.addOne}>+</button>
-            <button onClick={this.subtractOne}>-</button>
-            <button onClick={this.double}>X2</button>
-            <button onClick={this.triple}>X3</button>
-            <button onClick={this.squareRoot}>SqRt</button>
-            <button onClick={this.zeroOut}>zero out</button>
+            <div className="masterContainer" style={containerStyle}>
+                <h1 style={numStyle}>{this.state.count}</h1>
+                <div className="container">
+                    <div className="buttons">
+                        <button onClick={this.addOne}>+</button>
+                        <button onClick={this.subtractOne}>-</button>
+                        <button onClick={this.double}>X2</button>
+                        <button onClick={this.half}>/2</button>
+                        <button onClick={this.squareRoot}>SqRt</button>
+                        <button onClick={this.zeroOut}>zero out</button>
+                    </div>
+                </div>
             </div>
         )
     }
