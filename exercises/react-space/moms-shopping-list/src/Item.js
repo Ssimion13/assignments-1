@@ -2,9 +2,9 @@ import React from 'react';
 
 function Item(props) {
     return
-        <div>
-            
-        </div>
+        <li>
+            props.
+        </li>
 }
 
 export default Item;

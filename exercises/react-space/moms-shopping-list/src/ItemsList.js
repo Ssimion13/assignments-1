@@ -1,11 +1,10 @@
 import React from 'react';
 import Item from './Item';
 
-function Item() {
+function ItemList(props) {
     return
-        <div>
-            
-        </div>
+        const mappedPeople = props.state.items.map((item) => {
+            return (Item name={})
 }
 
-export default Item;
+export default ItemList;
