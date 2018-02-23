@@ -2,10 +2,11 @@ import React from 'react';
 import ShoppingList from './ShoppingList';
 
 function App() {
-    return
+    return (
         <div>
             <ShoppingList />
         </div>
+    )
 }
 
 export default App;

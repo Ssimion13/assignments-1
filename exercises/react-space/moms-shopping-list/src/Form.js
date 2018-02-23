@@ -1,40 +1,20 @@
-import React, {Component} from 'react';
-import ItemsList from './ItemsList';
+import React from 'react';
 
-class Form extends Component {
-    constructor() {
-        super()
-        this.state = {
-            item: "",
-            items: []
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+function Form(props) {
 
-    handleChange(e) {
-        this.setState({item: e.target.item})
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        alert('An item was submitted: ' + this.state.item);
-    }
-
-    render() {
         return (
-            <form onClick={this.handleSubmit}>
+            <form onSubmit={props.handleSubmit}>
                 Enter an item to add:
                 <input
                     type="text"
-                    onChange={this.handleChange}
-                    value={this.state.item}
-                    name="item"
+                    onChange={props.handleChange}
+                    value={props.inputs.entry}
+                    name="entry"
                 />
-                <ItemsList />
+                <br/><br/>
+                <button>Submit</button>
             </form>
         )
-    }
 }
 
 export default Form;
