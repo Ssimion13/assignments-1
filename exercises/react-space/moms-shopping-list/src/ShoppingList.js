@@ -14,7 +14,7 @@ class ShoppingList extends Component {
     }
 
     handleChange(e) {
-        this.setState({[e.target.entry]: e.target.value});
+        this.setState({[e.target.name]: e.target.value});
     }
 
     handleSubmit(e) {
@@ -37,7 +37,7 @@ class ShoppingList extends Component {
                     handleChange={this.handleChange}
                 />
                 <ItemsList
-                    inputs={this.state}
+                    groceryItems={this.state}
                 />
             </div>
         )

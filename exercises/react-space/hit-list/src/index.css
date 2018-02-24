@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-gap: 15px 15px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    margin-top: 50px;
+    margin-left: 20%;
+}
+
+.container img {
+    height: 200px;
+    width: 300px;
+}
