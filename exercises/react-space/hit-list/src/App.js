@@ -29,11 +29,7 @@ class App extends Component {
         })
         return (
             <div>
-                <header>
-                    <img src="https://coursework.vschool.io/content/images/2015/05/Screenshot-2015-05-27-at-13-21-20.png"/>
-                    <p>Don Corleone
-                </header>
-                <div className="container">{ mappedPeopleToHit }</div>;
+                <div className="container">{ mappedPeopleToHit }</div>
             </div>
         )
     }
