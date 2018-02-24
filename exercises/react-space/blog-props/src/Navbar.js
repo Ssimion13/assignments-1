@@ -5,9 +5,7 @@ class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
-                <div className="start">
-                    <a href="">Start Bootstrap</a>
-                </div>
+                <button className="start">Start Bootstrap</button>
                 <div>
                     <ul>
                         <li>HOME</li>

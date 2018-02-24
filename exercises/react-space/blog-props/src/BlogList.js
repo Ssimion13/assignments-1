@@ -31,7 +31,7 @@ class BlogList extends Component {
             return <BlogPost title={post.title} sub={post.sub} author={post.author} date={post.date} key={i + post.date}/>
         })
         return (
-            <div>
+            <div className="blog">
                 {mappedPosts}
             </div>
         )
