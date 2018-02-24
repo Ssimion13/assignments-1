@@ -28,9 +28,20 @@ body {
 
 }
 
+.buttons {
+    display: flex;
+}
+
+.buttons2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 button {
     height: 50px;
     width: 100px;
+    margin: 10px;
     background-color: lightblue;
     border-radius: 10px;
     font-size: 16px;

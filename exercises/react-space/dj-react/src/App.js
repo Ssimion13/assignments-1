@@ -12,6 +12,10 @@ class App extends Component {
         this.handleButtonTwo = this.handleButtonTwo.bind(this);
         this.handleButtonThree = this.handleButtonThree.bind(this);
         this.handleButtonFour = this.handleButtonFour.bind(this);
+        this.handleButtonFive = this.handleButtonFive.bind(this);
+        this.handleButtonSix = this.handleButtonSix.bind(this);
+        this.handleButtonSeven = this.handleButtonSeven.bind(this);
+        this.handleButtonEight = this.handleButtonEight.bind(this);
     }
 
     handleButtonOne() {
@@ -39,15 +43,45 @@ class App extends Component {
         })
     }
 
+    handleButtonFive() {
+        this.setState(prevState=>{
+            return {colors: ["yellow", prevState.colors[1], prevState.colors[2], prevState.colors[3]]}
+        })
+    }
+
+    handleButtonSix() {
+        this.setState(prevState=>{
+            return {colors: [prevState.colors[0], "orange", prevState.colors[2], prevState.colors[3]]}
+        })
+    }
+
+    handleButtonSeven() {
+        this.setState(prevState=>{
+            return {colors: [prevState.colors[0], prevState.colors[1], "red", prevState.colors[3]]}
+        })
+    }
+
+    handleButtonEight() {
+        this.setState(prevState=>{
+            return {colors: [prevState.colors[0], prevState.colors[1], prevState.colors[2], "brown"]}
+        })
+    }
+
     render () {
         return (
             <div className="app">
                 <Squares colors={this.state.colors}/>
                 <br/><br/>
-                <button onClick={this.handleButtonOne}>Change All</button>
-                <button onClick={this.handleButtonTwo}>Change Top</button>
-                <button onClick={this.handleButtonThree}>Bottom Left</button>
-                <button onClick={this.handleButtonFour}>Bottom Right</button>
+                <div className="buttons">
+                    <button onClick={this.handleButtonOne}>Change All</button>
+                    <button onClick={this.handleButtonTwo}>Change Top</button>
+                    <button onClick={this.handleButtonThree}>Left Blue</button>
+                    <button onClick={this.handleButtonFour}>Right Blue</button>
+                    <button onClick={this.handleButtonFive}>Upper Left</button>
+                    <button onClick={this.handleButtonSix}>Upper Right</button>
+                    <button onClick={this.handleButtonSeven}>Bottom Left</button>
+                    <button onClick={this.handleButtonEight}>Bottom Right</button>
+                </div>
             </div>
         )
     }
