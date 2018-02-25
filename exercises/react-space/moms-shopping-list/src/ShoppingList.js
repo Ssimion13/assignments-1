@@ -11,6 +11,7 @@ class ShoppingList extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDeleteAll = this.handleDeleteAll.bind(this);
     }
 
     handleChange(e) {
@@ -28,6 +29,23 @@ class ShoppingList extends Component {
         });
     }
 
+    handleDeleteAll() {
+        this.setState(() => {
+            return {
+                entry: "",
+                items: []
+            }
+        });
+    }
+
+    handleItemDelete() {
+
+    }
+
+    handleItemDone() {
+
+    }
+
     render() {
         return (
             <div>
@@ -36,6 +54,7 @@ class ShoppingList extends Component {
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
                 />
+            <button onClick={this.handleDeleteAll} className="del">DELETE ALL</button>
                 <ItemsList
                     groceryItems={this.state}
                 />

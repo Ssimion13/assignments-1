@@ -6,7 +6,7 @@ function ItemsList(props) {
             return <Item entry={item} key={item+i}/>
         });
         return (
-            <div>{ mappedEntries }</div>
+            <ul>{ mappedEntries }</ul>
         )
 }
 
