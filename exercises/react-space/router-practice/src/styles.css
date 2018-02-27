@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header.navbar, footer {
+    width: 100%;
+    height: 70px;
+    background-color: #171716;
+    color: whitesmoke;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+header > a {
+    padding: 10px;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Dog Walking",
+        "price": 10
+    },
+    {
+        "name": "Lawn Care",
+        "price": 20
+    },
+    {
+        "name": "Toilet-Unclogging",
+        "price": 30
+    }
+]
