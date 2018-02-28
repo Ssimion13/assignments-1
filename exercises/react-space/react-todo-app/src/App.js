@@ -43,17 +43,22 @@ class App extends Component {
 
     }
 
-    completeTodoItem(id, updatedTodo){
-        axios.put("https://api.vschool.io/ryan/todo/" + id, updatedTodo).then(response=>{
+    completeTodoItem(id){
+        const indexOfItemToEdit = this.state.todoItems.findIndex((todo) => {
+            return todo._id === id;
+        })
+        const isComplete = this.state.todoItems[indexOfItemToEdit].completed;
+
+        axios.put("https://api.vschool.io/ryan/todo/" + id, {completed: !isComplete}).then(response=>{
             this.setState(prevState => {
-                const filteredTodos = prevState.todoItems.filter(todo=>{
-                    return todo._id !== id;
-                })
-                return {todoItems: filteredTodos}
+                const copy = [...prevState.todoItems];
+                copy.splice(indexOfItemToEdit, 1, response.data);
+                return {todoItems: copy}
             })
         })
-
     }
+
+
 
     render() {
         return (
