@@ -3,9 +3,11 @@
 }
 
 body {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-family: verdana;
     padding: 0;
     margin: 0;
+    background-color: lightblue;
 }
 
 .navbar {
@@ -38,26 +40,79 @@ footer {
 .home {
     display: flex;
     justify-content: center;
+    align-items: center;
     background: url("https://images.unsplash.com/photo-1513403604456-4419af7f91cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=71a936cf1cc18603688db8d129b112bb&auto=format&fit=crop&w=582&q=80");
     width: 100%;
     height: 800px;
     color: white;
+    background-repeat: no-repeat;
+    margin-left: 10%;
 }
 
 .about {
     display: flex;
     justify-content: center;
-    background: url("https://images.unsplash.com/photo-1513403604456-4419af7f91cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=71a936cf1cc18603688db8d129b112bb&auto=format&fit=crop&w=582&q=80");
+    align-items: center;
+    background: url("https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2ada65afad21680de848bef4727acf5&auto=format&fit=crop&w=634&q=80");
     width: 100%;
     height: 800px;
     color: white;
+    background-repeat: no-repeat;
+    margin-left: 10%;
 }
 
 .services {
     display: flex;
     justify-content: center;
-    background: url("https://images.unsplash.com/photo-1513403604456-4419af7f91cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=71a936cf1cc18603688db8d129b112bb&auto=format&fit=crop&w=582&q=80");
+    align-items: center;
+    background: url("https://images.unsplash.com/photo-1518201660989-894b770d6e3c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e7658670dc8b57ddb4b191035da9afa&auto=format&fit=crop&w=1600&q=80");
     width: 100%;
     height: 800px;
     color: white;
+}
+
+ul {
+    line-height: 3;
+}
+
+.homeContent {
+    padding: 15px;
+    height: 500px;
+    width: 350px;
+    background-color: #ffffff95;
+    border-radius: 15px;
+    color: black;
+}
+
+.aboutContent {
+    padding: 15px;
+    height: 500px;
+    width: 350px;
+    background-color: #ffffff95;
+    border-radius: 15px;
+    color: black;
+    line-height: 1.5;
+    padding-top: 50px;
+}
+
+.servicesContent {
+    padding: 15px;
+    height: 575px;
+    width: 350px;
+    background-color: #00000099;
+    border-radius: 15px;
+}
+
+.servicesContent ul {
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .about {
+        margin-left: 0;
+    }
+
+    .home {
+        margin-left: 0;
+    }
 }
