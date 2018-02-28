@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer>
-            Footer goes here
+            A-1 Plumbing, Inc
         </footer>
     )
 }
