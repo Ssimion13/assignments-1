@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 
 class TodoComponent extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            isEditing: false
+            isEditing: false,
+            title: props.info.title
         }
+    }
+
+    handleChange(e) {
+        this.setState = {[e.target.name]: e.target.value};
     }
 
     editButton = () => {
@@ -32,7 +37,7 @@ class TodoComponent extends Component {
             <form>
                 <h1>Edit Form</h1>
                 <input
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     value={this.props.title}
                     type="text"
                     name= "title"
@@ -40,7 +45,7 @@ class TodoComponent extends Component {
                 />Title
                 <br/><br/>
                 <input
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     value={this.props.description}
                     type="text"
                     name= "description"
@@ -48,7 +53,7 @@ class TodoComponent extends Component {
                 />Description
                 <br/><br/>
                 <input
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     value={this.props.price}
                     type="text"
                     name= "price"
@@ -56,7 +61,7 @@ class TodoComponent extends Component {
                 />Price
                 <br/><br/>
                 <input
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     value={this.props.imgUrl}
                     type="text"
                     name= "imgUrl"
