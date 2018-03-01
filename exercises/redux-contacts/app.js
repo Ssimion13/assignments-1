@@ -27,11 +27,12 @@ function reducer(prevState = state, action) {
         case 'ADD_PERSON':
             return [...prevState, action.person]
 
-        case 'REMOVE_PERSON': {
-            return prevState.filter((item) => {
-                return item.name !== action.name
-            })
-        }
+        case 'REMOVE_PERSON':
+            {
+                return prevState.filter((item) => {
+                    return item.name !== action.name
+                })
+            }
         default:
             return prevState
     }
@@ -43,8 +44,24 @@ store.subscribe(() => {
     console.log(store.getState());
 })
 
-store.dispatch(addPerson({name: "Mike", phone: "666-666-6666", email:"a@a.com"}));
-store.dispatch(addPerson({name: "Joe", phone: "266-666-6666", email:"b@a.com"}));
-store.dispatch(addPerson({name: "Sam", phone: "466-666-6666", email:"c@a.com"}));
-store.dispatch(addPerson({name: "Jane", phone: "366-666-6666", email:"d@a.com"}));
+store.dispatch(addPerson({
+    name: "Mike",
+    phone: "666-666-6666",
+    email: "a@a.com"
+}));
+store.dispatch(addPerson({
+    name: "Joe",
+    phone: "266-666-6666",
+    email: "b@a.com"
+}));
+store.dispatch(addPerson({
+    name: "Sam",
+    phone: "466-666-6666",
+    email: "c@a.com"
+}));
+store.dispatch(addPerson({
+    name: "Jane",
+    phone: "366-666-6666",
+    email: "d@a.com"
+}));
 store.dispatch(removePerson("Mike"));
