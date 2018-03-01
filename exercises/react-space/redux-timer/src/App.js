@@ -11,7 +11,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            minutes: 0
+            minutes: 0,
+            isRunning: false
         }
         this.handleStart = this.handleStart.bind(this);
         this.handleStop = this.handleStop.bind(this);
@@ -19,15 +20,26 @@ class App extends Component {
     }
 
     handleStart() {
-        start = setInterval(this.props.startTimer, 10);
+        if (this.state.isRunning === false) {
+            start = setInterval(this.props.startTimer, 10);
+            this.setState = {
+                isRunning: true
+            }
+        }
     }
 
     handleStop() {
         const stop = clearInterval(start);
+        if (this.state.isRunning === true) {
+            this.setState = {
+                isRunning: false
+            }
+        }
     }
 
     handleReset() {
         this.props.resetTimer();
+        this.handleStop();
     }
 
     handleLap() {

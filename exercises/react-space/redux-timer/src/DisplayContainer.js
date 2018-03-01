@@ -3,7 +3,7 @@ import Display from './Display';
 
 const DisplayContainer = (props) => {
     return (
-        <div>
+        <div className="app">
             <h3>Redux Timer</h3>
             <Display />
             <br/><br/>
