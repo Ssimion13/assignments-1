@@ -68,9 +68,10 @@ footer {
 
 .breeds {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    background: url("https://images.unsplash.com/photo-1518201660989-894b770d6e3c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e7658670dc8b57ddb4b191035da9afa&auto=format&fit=crop&w=1600&q=80");
+    align-items: center;
+    background: url("");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -82,8 +83,8 @@ ul {
 }
 
 .homeContent {
-    margin-right: -25%;
-    margin-bottom: 50px;
+    /* margin-right: -25%;
+    margin-bottom: 50px; */
     padding: 15px;
     height: 400px;
     width: 350px;
@@ -104,17 +105,19 @@ ul {
 }
 
 .breedsContent {
-    margin-top: 170px;
-    margin-left: 150px;
+    margin-top: 50px;
     padding: 15px;
     height: 575px;
-    width: 350px;
+    width: 700px;
     background-color: #00000099;
     border-radius: 15px;
 }
 
-.breedsContent select {
-
+.breeds select {
+    /* margin-top: 170px;
+    margin-left: -200px; */
+    height: 35px;
+    width: 150px;
 }
 
 .breedsContent ul {
@@ -128,11 +131,17 @@ ul {
     .aboutContent {
         margin-left: 400px;
     }
+    .breedsContent {
+        width: 980px;
+    }
 }
 
 @media (max-width: 800px) {
     a {
         font-size: 0.7em;
+    }
+    .breedsContent {
+        width: 380px;
     }
 }
 

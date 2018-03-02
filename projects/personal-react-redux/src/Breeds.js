@@ -1,16 +1,14 @@
 import React from 'react';
+import Populate from './Populate';
 
 const Breeds = () => {
     return (
         <div className="breeds">
             <select>
-                <option value="Beagle">Beagle</option>
-                <option value="Chihuahua">Chihuahua</option>
-                <option value="Blue Tick">Blue Tick</option>
-                <option value="Husky">Husky</option>
+                <Populate />
             </select>
                 <div className="breedsContent">
-        
+
                 </div>
         </div>
     )
