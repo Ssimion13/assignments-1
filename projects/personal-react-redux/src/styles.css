@@ -58,7 +58,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f2ada65afad21680de848bef4727acf5&auto=format&fit=crop&w=634&q=80");
+    background: url("https://images.unsplash.com/photo-1505044024939-c154d39ca595?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24e43d5b891705afc6cbe130df4bba22&auto=format&fit=crop&w=634&q=80");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -69,7 +69,7 @@ footer {
 .breeds {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background: url("https://images.unsplash.com/photo-1518201660989-894b770d6e3c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3e7658670dc8b57ddb4b191035da9afa&auto=format&fit=crop&w=1600&q=80");
     background-size: cover;
     width: 100%;
@@ -82,6 +82,8 @@ ul {
 }
 
 .homeContent {
+    margin-right: -25%;
+    margin-bottom: 50px;
     padding: 15px;
     height: 400px;
     width: 350px;
@@ -91,17 +93,19 @@ ul {
 }
 
 .aboutContent {
+    margin-right: -25%;
+    margin-bottom: 50px;
     padding: 15px;
-    height: 500px;
+    height: 300px;
     width: 350px;
     background-color: #ffffff95;
     border-radius: 15px;
     color: black;
-    line-height: 1.5;
-    padding-top: 50px;
 }
 
 .breedsContent {
+    margin-top: 170px;
+    margin-left: 150px;
     padding: 15px;
     height: 575px;
     width: 350px;
@@ -109,26 +113,42 @@ ul {
     border-radius: 15px;
 }
 
+.breedsContent select {
+
+}
+
 .breedsContent ul {
     list-style: none;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     .homeContent {
         margin-left: 400px;
     }
-
     .aboutContent {
         margin-left: 400px;
     }
 }
 
 @media (max-width: 800px) {
-    .about {
-        margin-left: 0;
+    a {
+        font-size: 0.7em;
     }
+}
 
+@media (max-width: 575px) {
     .home {
         margin-left: 0;
+        justify-content: left;
+    }
+    .homeContent {
+        margin-left: 25px;
+    }
+    .about {
+        margin-left: 0;
+        justify-content: left;
+    }
+    .aboutContent {
+        margin-left: 25px;
     }
 }

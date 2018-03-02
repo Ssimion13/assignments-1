@@ -4,10 +4,9 @@ const About = () => {
     return (
         <div className="about">
             <div className="aboutContent">
-                `We've been your local plumbing experts for more than 30 years.
-                 Whether it's an emergency, a plumbing addition to your home or
-                 or business, or routine maintenance, A-1 Plumbing will do the
-                 the job right the first time for a fair price.`
+                `This site pulls dog info from the API run by Dog CEO, which uses
+                 the Stanford Dogs Dataset. On the See Breeds page, you can select
+                 a breed from the list to view a random picture of that breed.`
             </div>
         </div>
     )
