@@ -1,7 +1,12 @@
 import axios from 'axios';
 
 export function getRandomPic(breed) {
+    let isLoading;
     return function(dispatch) {
+        dispatch({
+            type: "RECEIVE_PIC",
+            isLoading: true
+        })
         axios.get("https://dog.ceo/api/breed/" + breed + "/images/random")
         .then(response => {
             dispatch({
@@ -12,11 +17,16 @@ export function getRandomPic(breed) {
     }
 }
 
-function reducer(prevState = {pic: ""}, action){
+function reducer(prevState = {isLoading: false, pic: ""}, action){
     switch (action.type) {
-        case "GET_RANDOM_PIC":
-            console.log(action.type);
+        case "RECEIVE_PIC":
             return {
+                isLoading: true,
+                pic: ""
+            }
+        case "GET_RANDOM_PIC":
+            return {
+                isLoading: false,
                 pic: action.breed
             }
         default:

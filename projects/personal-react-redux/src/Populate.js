@@ -19,7 +19,6 @@ class Populate extends Component {
         axios.get("https://dog.ceo/api/breeds/list/all").then(response => {
             const breedsList = response.data.message;
             const breedsArr = Object.entries(breedsList)
-            console.dir(breedsArr);
             let mapped = breedsArr.map(breed => {
                 return {breed: breed[0], subBreed: breed[1]}
             })
