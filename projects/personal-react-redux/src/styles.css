@@ -105,11 +105,14 @@ ul {
 }
 
 .breedsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     padding: 15px;
     height: 575px;
     width: 700px;
-    background-color: #00000099;
+    background-color: #00000000;
     border-radius: 15px;
 }
 
@@ -118,6 +121,30 @@ ul {
     margin-left: -200px; */
     height: 35px;
     width: 150px;
+}
+
+.select-style {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 145px;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #fafafa url("") no-repeat 90% 50%;
+}
+
+.select-style select {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+}
+
+.select-style select:focus {
+    outline: none;
 }
 
 .breedsContent ul {
