@@ -3,7 +3,27 @@ import React from 'react';
 const Form = props => {
     return {
         <div>
-
+            <form>
+                <input onChange={props.handleChange}
+                        value={props.info.imgUrl}
+                        type="text"
+                        name= "imgUrl"
+                        id="imgUrl"
+                        />Image URL
+                <input onChange={props.handleChange}
+                        value={props.info.title}
+                        type="text"
+                        name= "title"
+                        id="title"
+                        />Image URL
+                <input onChange={props.handleChange}
+                        value={props.info.description}
+                        type="text"
+                        name= "description"
+                        id="description"
+                        />Image URL
+                <button id="submit" onClick={props.handleSubmit}>Submit</button>
+            </form>
         </div>
     }
 }

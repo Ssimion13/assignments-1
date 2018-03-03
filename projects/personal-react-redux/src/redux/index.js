@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export function getRandomPic(breed) {
-    let isLoading;
     return function(dispatch) {
         dispatch({
             type: "RECEIVE_PIC",
