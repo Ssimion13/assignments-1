@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Form from './Form';
 
-
 class FormContainer extends Component {
     constructor() {
         super();
