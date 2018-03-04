@@ -1,7 +1,7 @@
 import React from 'react';
 import Display from './Display';
 
-const DisplayContainer = (props) => {
+const DisplayContainer = props => {
     return (
         <div className="app">
             <h3>Redux Timer</h3>

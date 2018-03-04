@@ -11,7 +11,6 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            minutes: 0,
             isRunning: false
         }
         this.handleStart = this.handleStart.bind(this);
@@ -50,8 +49,9 @@ class App extends Component {
         return (
             <div className="App">
                 <DisplayContainer
+                    milliseconds = {this.props.milliseconds}
                     seconds = {this.props.seconds}
-                    minutes = {this.state.minutes}
+                    minutes = {this.props.minutes}
                     handleStart = {this.handleStart}
                     handleStop = {this.handleStop}
                     handleReset = {this.handleReset}

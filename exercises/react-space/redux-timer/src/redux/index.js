@@ -21,9 +21,9 @@ function reducer(prevState = {minutes: 0, seconds: 0, milliseconds: 0}, action) 
         case "START_TIMER":
             return {
                 ...prevState,
-                milliseconds: prevState.milliseconds < 99 ? prevState.milliseconds + 1 : 0,
-                seconds: prevState.milliseconds === 99 ? prevState.seconds + 1 : prevState.seconds,
-                minutes: prevState.seconds === 59 ? prevState.minutes + 1 : prevState.minutes
+                milliseconds: (prevState.milliseconds + 1) % 99,
+                seconds: Math.round((prevState.milliseconds + 1) / 99),
+                minutes: Math.round((prevState.seconds + 1) / 59)
             }
         case "STOP_TIMER":
             return {

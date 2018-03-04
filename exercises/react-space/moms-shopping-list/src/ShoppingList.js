@@ -38,8 +38,10 @@ class ShoppingList extends Component {
         });
     }
 
-    handleItemDelete() {
+    handleItemDelete(e) {
+        this.setState(prevState => {
 
+        })
     }
 
     handleItemDone() {
