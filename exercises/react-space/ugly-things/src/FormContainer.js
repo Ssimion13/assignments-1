@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {addNewPost} from './redux';
+import {addNewPost} from './redux/entries.js';
 import Form from './Form';
 import Display from './Display';
 
@@ -23,12 +23,12 @@ class FormContainer extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.addNewPost(e.target.url, e.target.title, e.target.description);
+        this.props.addNewPost(this.state);
     }
 
     render() {
         return (
-            <div>
+            <div className="FormContainer">
                 <Form
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

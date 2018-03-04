@@ -1,20 +1,9 @@
-export function addNewPost(url, title, description) {
-    return {
-        type: "ADD_NEW_POST",
-        url,
-        title,
-        description
-    }
-}
+import { createStore, combineReducers } from 'redux';
+import entries from "./entries";
 
-function reducer(prevState = [], action) {
-    switch (action.type) {
-        case "ADD_NEW_POST":
-            return [...prevState, {
-                url: action.url,
-                title: action.title,
-                description: action.description
-            }]
-        default: prevState
-    }
-}
+const store = createStore(
+    combineReducers({entries}),
+    window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_()
+);
+
+export default store;
