@@ -69,7 +69,7 @@ footer {
 .breeds {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     background: url("");
     background-size: cover;
@@ -108,10 +108,9 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
     padding: 15px;
-    height: 575px;
-    width: 700px;
+    height: 700px;
+    width: 80%;
     background-color: #00000000;
     border-radius: 15px;
 }
@@ -124,6 +123,7 @@ ul {
 }
 
 .select-style {
+    margin-top: 100px;
     font-size: 16px;
     border: 1px solid #ccc;
     width: 145px;
@@ -133,7 +133,7 @@ ul {
 }
 
 .select-style select {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     font-size: 16px;
     padding: 5px 8px;
     width: 130%;
@@ -151,32 +151,32 @@ ul {
     list-style: none;
 }
 
-.randomePic {
-    size: cover;
+.randomPic {
+    height: 700px;
+    width: 100%;
+    margin-top: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 15px;
+    background-position: center;
 }
 
 h3 {
     color: blue;
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 1000px) {
     .homeContent {
         margin-left: 400px;
     }
     .aboutContent {
         margin-left: 400px;
     }
-    .breedsContent {
-        width: 980px;
-    }
 }
 
 @media (max-width: 800px) {
     a {
         font-size: 0.7em;
-    }
-    .breedsContent {
-        width: 380px;
     }
 }
 
