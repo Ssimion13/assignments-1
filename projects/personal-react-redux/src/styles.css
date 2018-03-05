@@ -71,7 +71,7 @@ footer {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    background: url("");
+    background: url("https://dog.ceo/api/img/corgi-cardigan/n02113186_7159.jpg");
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -166,21 +166,4 @@ h3 {
     a {
         font-size: 0.7em;
     }
-}
-
-@media (max-width: 575px) {
-    /* .home {
-        margin-left: 0;
-        justify-content: left;
-    }
-    .homeContent {
-        margin-left: 25px;
-    }
-    .about {
-        margin-left: 0;
-        justify-content: left;
-    }
-    .aboutContent {
-        margin-left: 25px;
-    }*/
 }

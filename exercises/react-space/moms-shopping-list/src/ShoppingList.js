@@ -7,11 +7,17 @@ class ShoppingList extends Component {
         super();
         this.state = {
             entry: "",
-            items: []
+            items: {
+                completed: false,
+                text: "",
+                id: ""
+            }
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDeleteAll = this.handleDeleteAll.bind(this);
+        this.handleItemDelete = this.handleItemDelete.bind(this);
+        this.handleItemDone = this.handleItemDone.bind(this);
     }
 
     handleChange(e) {
@@ -19,9 +25,8 @@ class ShoppingList extends Component {
     }
 
     handleSubmit(e) {
-        e.persist();
         e.preventDefault();
-        this.setState((prevState) => {
+        this.setState(prevState => {
             return {
                 entry: "",
                 items: [...prevState.items, prevState.entry]
@@ -38,14 +43,24 @@ class ShoppingList extends Component {
         });
     }
 
-    handleItemDelete(e) {
-        this.setState(prevState => {
-
+    handleItemDelete(entry) {
+        const newItemsList = this.state.items.filter(item => {
+            return item !== entry;
+        })
+        this.setState({
+            entry: "",
+            items: newItemsList
         })
     }
 
-    handleItemDone() {
-
+    handleItemDone(entry) {
+        const newItemsList = this.state.items.map(item => {
+                return item === entry ? item.strike() : item;
+        })
+        this.setState({
+            entry: "",
+            items: newItemsList
+        })
     }
 
     render() {
@@ -59,6 +74,8 @@ class ShoppingList extends Component {
             <button onClick={this.handleDeleteAll} className="del">DELETE ALL</button>
                 <ItemsList
                     groceryItems={this.state}
+                    handleItemDelete={this.handleItemDelete}
+                    handleItemDone={this.handleItemDone}
                 />
             </div>
         )
