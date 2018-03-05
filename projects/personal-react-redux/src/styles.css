@@ -83,8 +83,6 @@ ul {
 }
 
 .homeContent {
-    /* margin-right: -25%;
-    margin-bottom: 50px; */
     padding: 15px;
     height: 400px;
     width: 350px;
@@ -94,8 +92,7 @@ ul {
 }
 
 .aboutContent {
-    margin-right: -25%;
-    margin-bottom: 50px;
+    margin-top: -25%;
     padding: 15px;
     height: 300px;
     width: 350px;
@@ -165,15 +162,6 @@ h3 {
     color: blue;
 }
 
-@media (max-width: 1000px) {
-    .homeContent {
-        margin-left: 400px;
-    }
-    .aboutContent {
-        margin-left: 400px;
-    }
-}
-
 @media (max-width: 800px) {
     a {
         font-size: 0.7em;
@@ -181,7 +169,7 @@ h3 {
 }
 
 @media (max-width: 575px) {
-    .home {
+    /* .home {
         margin-left: 0;
         justify-content: left;
     }
@@ -194,5 +182,5 @@ h3 {
     }
     .aboutContent {
         margin-left: 25px;
-    }
+    }*/
 }
