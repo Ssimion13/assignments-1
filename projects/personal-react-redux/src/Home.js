@@ -8,7 +8,7 @@ const Home = () => {
                     <li>Little Dogs</li>
                     <li>Medium Dogs</li>
                     <li>Big Dogs</li>
-                    <li>We got all the dogs!</li>
+                    <li className="all">We got all the dogs!</li>
                 </ul>
             </div>
         </div>

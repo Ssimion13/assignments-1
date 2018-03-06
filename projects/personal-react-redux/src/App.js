@@ -8,7 +8,7 @@ import About from './About';
 import Breeds from './Breeds';
 import './styles.css';
 
-const App = (props) => {
+const App = props => {
     return (
         <div>
             <Navbar />
