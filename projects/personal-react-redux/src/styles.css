@@ -7,7 +7,7 @@ body {
     font-family: verdana;
     padding: 0;
     margin: 0;
-    background-color: lightblue;
+    background-color: #789BE5;
 }
 
 .navbar {
@@ -16,7 +16,7 @@ body {
     align-items: stretch;
     width: 100%;
     height: 70px;
-    background-color: darkblue;
+    background-color: #212B40;
     align-items: center;
     padding-right: 40px;
     position: fixed;
@@ -24,7 +24,7 @@ body {
 }
 
 a {
-    color: white;
+    color: #AFC1FF;
     text-decoration: none;
     padding: 25px;
 }
@@ -35,8 +35,8 @@ footer {
     justify-content: center;
     width: 100%;
     height: 70px;
-    background-color: darkblue;
-    color: white;
+    background-color: #212B40;
+    color: #AFC1FF;
     position: fixed;
     bottom: 0px;
 }
@@ -71,7 +71,7 @@ footer {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -150,7 +150,7 @@ ul {
     height: 700px;
     width: 100%;
     margin-top: 50px;
-    background-size: cover;
+    background-size: auto auto;
     background-repeat: no-repeat;
     border: 5px silver solid;
     border-radius: 15px;
@@ -159,7 +159,7 @@ ul {
 }
 
 h3 {
-    color: blue;
+    color: #212B40;
 }
 
 @media (max-width: 800px) {
