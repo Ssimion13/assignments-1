@@ -28,8 +28,7 @@ class Populate extends Component {
 
     handleGetPic(e) {
         this.setState({[e.target.name]: e.target.value},
-            ()=>this.props.getRandomPic(this.state.selectedBreed))
-        ;
+        ()=>this.props.getRandomPic(this.state.selectedBreed));
     }
 
     render() {

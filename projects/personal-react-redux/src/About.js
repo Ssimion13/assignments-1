@@ -6,7 +6,7 @@ const About = () => {
             <div className="aboutContent">
                 `This site pulls dog info from the API run by Dog CEO, which uses
                  the Stanford Dogs Dataset. On the See Breeds page, you can select
-                 a breed from the list to view a random picture of that breed.`
+                 a breed from the list to view a random photo of that breed.`
             </div>
         </div>
     )
