@@ -8,7 +8,7 @@ function Item(props) {
                 X
             </button>
             <button className="itemDelButton"
-                    onClick={() => props.handleItemDelete(props.entry)}>
+                    onClick={() => props.handleItemDelete(props.text)}>
                 X
             </button>
             {props.entry}

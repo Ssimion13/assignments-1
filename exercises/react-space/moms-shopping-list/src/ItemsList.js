@@ -3,10 +3,13 @@ import Item from './Item';
 
 function ItemsList(props) {
         const mappedEntries = props.groceryItems.items.map((item, i) => {
-            return <Item entry={item}
+            return <Item entry={item.text}
                         handleItemDelete={props.handleItemDelete}
                         handleItemDone={props.handleItemDone}
-                        key={item+i}/>
+                        items={props.items}
+                        id={item+i}
+                        key={item+i}
+                    />
         });
         return (
             <ul>{ mappedEntries }</ul>

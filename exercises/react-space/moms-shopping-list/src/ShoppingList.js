@@ -6,12 +6,9 @@ class ShoppingList extends Component {
     constructor() {
         super();
         this.state = {
-            entry: "",
-            items: {
-                completed: false,
-                text: "",
-                id: ""
-            }
+            text: "",
+            items: [],
+            isCompleted: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,46 +18,43 @@ class ShoppingList extends Component {
     }
 
     handleChange(e) {
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({text: e.target.value});
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.setState(prevState => {
-            return {
-                entry: "",
-                items: [...prevState.items, prevState.entry]
-            }
-        });
+        if (this.state.text !== "") {
+            this.setState(prevState => {
+                return {
+                    text: "",
+                    items: [...prevState.items, prevState.text]
+                }
+            });
+        }
     }
 
     handleDeleteAll() {
         this.setState(() => {
             return {
-                entry: "",
-                items: []
+                text: "",
+                items: [],
+                isCompleted: false
             }
         });
     }
 
-    handleItemDelete(entry) {
+    handleItemDelete(id) {
         const newItemsList = this.state.items.filter(item => {
-            return item !== entry;
+            return item.id !== id;
         })
         this.setState({
-            entry: "",
+            text: "",
             items: newItemsList
         })
     }
 
-    handleItemDone(entry) {
-        const newItemsList = this.state.items.map(item => {
-                return item === entry ? item.strike() : item;
-        })
-        this.setState({
-            entry: "",
-            items: newItemsList
-        })
+    handleItemDone(id) {
+        this.setState(isCompleted: !this.state.isCompleted);
     }
 
     render() {
