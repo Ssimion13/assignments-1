@@ -1,11 +1,11 @@
 import React from 'react';
 import Person from './Person';
 
-const Person = () => {
+const PersonList = () => {
     return (
         <div>
         </div>
     )
 }
 
-export default Person;
+export default PersonList;

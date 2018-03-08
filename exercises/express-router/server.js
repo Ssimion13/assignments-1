@@ -4,8 +4,21 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.use("/movies", require('./routes.movies')); // check here if the res starts with /movies
-app.use("/songs", require('./routes.songs')); // check here if the res starts with /songs
+// Middleware #1
+app.use((req, res, next) => {
+    console.log("Hey, I'm a middleware!");
+    next();
+})
+
+// Middleware #2
+app.use((req, res, next) => {
+    console.log("Hey, I'm a second middleware!");
+    next();
+})
+
+//Routes
+app.use("/movies", require('./routes/movies')); // check here if the res starts with /movies
+app.use("/songs", require('./routes/songs')); // check here if the res starts with /songs
 
 
 app.listen(8000, () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import BountyListItem from './BountyList';
+import BountyList from './BountyList';
 
 const App = () => {
     return (
