@@ -41,12 +41,22 @@ const bounties = [
 ]
 
 app.get("/bounties", (req, res) => {
-    res.send(bounties);
-})
-
-app.get('/bounties/:id', (req, res) => {
-    const found = bounties.find(person => person.id === req.params.id);
-    res.send(found);
+    if (req.query.id) {
+        return res.send(bounties.filter(person => person.id === req.query.id));
+    }
+    if (req.query.firstName) {
+        return res.send(bounties.filter(person => person.firstName === req.query.firstName));
+    }
+    if (req.query.lastName) {
+        return res.send(bounties.filter(person => person.lastName === req.query.lastName));
+    }
+    if (req.query.living) {
+        return res.send(bounties.filter(person => person.living === req.query.living));
+    }
+    if (req.query.type) {
+        return res.send(bounties.filter(person => person.type === req.query.type));
+    }
+    return res.send(bounties);
 })
 
 app.post("/bounties", (req, res) => {
