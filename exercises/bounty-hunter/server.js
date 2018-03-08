@@ -44,8 +44,29 @@ app.get("/bounties", (req, res) => {
     res.send(bounties);
 })
 
-app.post("/bounties", (req, res) => {
+app.get('/bounties/:id', (req, res) => {
+    const found = bounties.find(person => person.id === req.params.id);
+    res.send(found);
+})
 
+app.post("/bounties", (req, res) => {
+    req.body.id = uuid();
+    bounties.push(req.body);
+    return res.send(req.body);
+})
+
+app.put('/bounties/:id', (req, res) => {
+    const found = bounties.find(person => person.id === req.params.id);
+    for(let key in req.body){
+        found[key] = req.body[key];
+    }
+    return res.send(found);
+})
+
+app.delete('/bounties/:id', (req, res) => {
+    const found = bounties.find(person => person.id === req.params.id);
+    bounties.splice(bounties.indexOf(found), 1);
+    return res.send(bounties);
 })
 
 app.listen(3000, () => {
