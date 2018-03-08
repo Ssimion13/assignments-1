@@ -1,20 +1,11 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const myMiddleWare = require('./mymiddleware');
 
 app.use(bodyParser.json());
 
-// Middleware #1
-app.use((req, res, next) => {
-    console.log("Hey, I'm a middleware!");
-    next();
-})
-
-// Middleware #2
-app.use((req, res, next) => {
-    console.log("Hey, I'm a second middleware!");
-    next();
-})
+app.use(myMiddleWare);
 
 //Routes
 app.use("/movies", require('./routes/movies')); // check here if the res starts with /movies

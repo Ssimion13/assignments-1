@@ -2,7 +2,7 @@ const express = require('express');
 const movieRoutes = express.Router();
 
 movieRoutes.get("/", (req, res) => {
-
+    res.send({});
 })
 
 movieRoutes.get("/:id", (req, res) => {
