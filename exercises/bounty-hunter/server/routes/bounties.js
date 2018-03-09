@@ -5,32 +5,32 @@ const bounties = [
     {
         firstName: "Joe",
         lastName: "Schmoe",
-        living: true,
-        bountyAmount: 3,
+        living: "true",
+        bountyAmount: "3",
         type: "Sith",
         id: "b00a6bd0-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Jane",
         lastName: "Schmoe",
-        living: true,
-        bountyAmount: 27,
+        living: "true",
+        bountyAmount: "27",
         type: "Sith",
         id: "b00a92e0-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Darth",
         lastName: "Vader",
-        living: true,
-        bountyAmount: 26,
+        living: "true",
+        bountyAmount: "26",
         type: "Jedi",
         id: "b00a92e1-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Mike",
         lastName: "Schmidt",
-        living: true,
-        bountyAmount: 4,
+        living: "true",
+        bountyAmount: "4",
         type: "Jedi",
         id: "b00a92e2-2293-11e8-b01a-f921d2da7965"
     }
