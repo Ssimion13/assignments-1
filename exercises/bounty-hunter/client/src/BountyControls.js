@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Form from './Form';
 import Bounty from './Bounty';
 
-class BountyList extends Component {
+class BountyConsrols extends Component {
     constructor() {
         super();
         this.state = {
@@ -47,15 +46,11 @@ class BountyList extends Component {
     render() {
         return (
             <div>
-                <Form
-                    handleChange = {this.handleChange}
-                    handleSubmit = {this.handleSubmit}
-                    {...this.state}
-                />
+
                 <Bounty />
             </div>
         )
     }
 }
 
-export default BountyList;
+export default BountyControls;

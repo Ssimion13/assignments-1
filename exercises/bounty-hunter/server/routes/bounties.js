@@ -5,33 +5,29 @@ const bounties = [
     {
         firstName: "Joe",
         lastName: "Schmoe",
-        living: "true",
-        bountyAmount: "3",
         type: "Sith",
+        bountyAmount: "3",
         id: "b00a6bd0-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Jane",
         lastName: "Schmoe",
-        living: "true",
-        bountyAmount: "27",
         type: "Sith",
+        bountyAmount: "27",
         id: "b00a92e0-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Darth",
         lastName: "Vader",
-        living: "true",
-        bountyAmount: "26",
         type: "Jedi",
+        bountyAmount: "25",
         id: "b00a92e1-2293-11e8-b01a-f921d2da7965"
     },
     {
         firstName: "Mike",
         lastName: "Schmidt",
-        living: "true",
-        bountyAmount: "4",
         type: "Jedi",
+        bountyAmount: "5",
         id: "b00a92e2-2293-11e8-b01a-f921d2da7965"
     }
 ]
@@ -46,11 +42,11 @@ bountyRouter.get("/", (req, res) => {
     if (req.query.lastName) {
         return res.send(bounties.filter(person => person.lastName === req.query.lastName));
     }
-    if (req.query.living) {
-        return res.send(bounties.filter(person => person.living === req.query.living));
-    }
     if (req.query.type) {
         return res.send(bounties.filter(person => person.type === req.query.type));
+    }
+    if (req.query.bountyAmount) {
+        return res.send(bounties.filter(person => person.bountyAmount === req.query.bountyAmount));
     }
     return res.send(bounties);
 })
