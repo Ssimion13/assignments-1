@@ -1,12 +1,15 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const morgan = require('morgan');
 const uuid = require("uuid/v1");
+const port = process.env.PORT || 7005;
 
-app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
-app.use("/bounties", require('./routes/bounties'));
+app.use("/bounty", require('./routes/bounties'));
 
-app.listen(5000, () => {
-    console.log("the server is running on port 5000");
+app.listen(port, () => {
+    console.log(`The server is running on port ${port}`);
 });

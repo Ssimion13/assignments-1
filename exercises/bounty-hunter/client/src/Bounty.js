@@ -4,7 +4,12 @@ class Bounty extends Component {
     constructor() {
         super();
         this.state = {
-
+            isEditing: false,
+            isExpanded: false,
+            firstName: "",
+            lastName: "",
+            type: "",
+            bountyAmount: ""
         }
     }
 

@@ -18,5 +18,5 @@ mongoose.connect('mongodb://localhost/bounty-hunter', (err) => {
 app.use('/bounty', require('./routes/bounties'));
 
 app.listen(port, () => {
-    console.log('Server is running on port 4000');
+    console.log('Server is running on port 5000');
 })
