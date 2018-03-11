@@ -31,20 +31,17 @@ class App extends Component {
         axios.get("/bounty").then(response => {
             const bountiesList = response.data;
             const bountiesArr = Object.entries(bountiesList);
-            console.log(bountiesArr);
             let mapped = bountiesArr.map((bounty, i) => {
                 return {
-                    firstName: bounty[0].firstName,
-                    lastName: bounty.lastName,
-                    living: bounty.living,
-                    bountyAmount: bounty.bountyAmount,
-                    type: bounty.type,
-                    key: bounty.lastName+i
+                    firstName: bounty[1].firstName,
+                    lastName: bounty[1].lastName,
+                    living: bounty[1].living,
+                    bountyAmount: bounty[1].bountyAmount,
+                    type: bounty[1].type,
+                    key: bounty[1].lastName+i
                 }
             });
-            console.log(mapped);
             this.setState({bounties: mapped});
-            console.log(this.state);
         })
     }
 
@@ -66,7 +63,8 @@ class App extends Component {
     }
 
     render() {
-        const mappedBounties = this.state.bounties.map((bounty, i) => {
+        console.log(this.state.bounties);
+        const mappedBounties = this.state.bounties.map(bounty => {
             return (
                 <Bounty
                     key={bounty._id}

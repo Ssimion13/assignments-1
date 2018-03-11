@@ -23,8 +23,14 @@ class Bounty extends Component {
 
     render() {
         return (
-            <div>
-
+            <div className="bounty">
+                <p>
+                    First Name: {this.props.info.firstName}
+                    Last Name: {this.props.info.lastName}
+                    Living: {this.props.info.living}
+                    Bounty: ${this.props.info.bountyAmount}
+                    Type: {this.props.info.type}
+                </p>
             </div>
         )
     }
