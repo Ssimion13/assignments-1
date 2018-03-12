@@ -14,12 +14,18 @@ body {
 }
 
 .bounty {
-    margin: 0;
-    padding: 0;
+    margin: 10px;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100px;
     width: 300px;
     border: solid 1px black;
+}
+
+.bounty > p {
+    padding: 0;
+    margin: 0;
 }

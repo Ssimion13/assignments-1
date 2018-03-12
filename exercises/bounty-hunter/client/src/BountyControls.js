@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Bounty from './Bounty';
 
 class BountyControls extends Component {
     constructor() {
@@ -17,8 +16,6 @@ class BountyControls extends Component {
     render() {
         return (
             <div>
-
-                <Bounty />
             </div>
         )
     }
