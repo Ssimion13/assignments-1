@@ -20,7 +20,7 @@ class App extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleEditSubmit = this.handleEditSubmit.bind(this);
     }
-
+    let mapped = [];
     componentDidMount() {
         axios.get("/bounty").then(response => {
             this.setState({bounties: response.data});
