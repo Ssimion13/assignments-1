@@ -24,8 +24,8 @@ class Bounty extends Component {
     render() {
         return (
             <div className="bounty">
-                <p>First Name: {this.props.info.firstName}</p>
-                <p>Last Name: {this.props.info.lastName}</p>
+                <p>Name: {this.props.info.firstName + " " +
+                        this.props.info.lastName}</p>
                 <p>Living: {this.props.info.living}</p>
                 <p>Bounty: {this.props.info.bountyAmount}</p>
                 <p>Type: {this.props.info.type}</p>
