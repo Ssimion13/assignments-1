@@ -21,29 +21,11 @@ class App extends Component {
         this.handleEditSubmit = this.handleEditSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     axios.get('/bounty').then(response => {
-    //         this.setState({bounties: response.bounties})
-    //     })
-    // }
-
     componentDidMount() {
         axios.get("/bounty").then(response => {
-            const bountiesList = response.data;
-            const bountiesArr = Object.entries(bountiesList);
-            let mapped = bountiesArr.map((bounty, i) => {
-                return {
-                    firstName: bounty[1].firstName,
-                    lastName: bounty[1].lastName,
-                    living: bounty[1].living,
-                    bountyAmount: bounty[1].bountyAmount,
-                    type: bounty[1].type,
-                    key: bounty[1].lastName+i
-                }
-            });
-            this.setState({bounties: mapped});
-        })
-    }
+            this.setState({bounties: response.data});
+        });
+    };
 
     handleDeleteBounty(id) {
 
@@ -63,7 +45,6 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.bounties);
         const mappedBounties = this.state.bounties.map(bounty => {
             return (
                 <Bounty
