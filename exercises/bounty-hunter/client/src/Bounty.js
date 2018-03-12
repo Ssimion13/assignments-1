@@ -22,11 +22,11 @@ class Bounty extends Component {
     }
 
     render() {
-        console.log(this.props.info);
+        console.log(this.props.info.firstName);
         return (
             <div className="bounty">
                 <p>
-                    {this.props.info}
+
                 </p>
             </div>
         )
