@@ -5,7 +5,7 @@ export function getOneIssue(id) {
         axios.get("/issues/" + id).then(response => {
             dispatch({
                 type: "GET_ONE_ISSUE",
-                issue: response
+                issue: response.data
             });
         });
     }
@@ -16,7 +16,7 @@ export function getAllIssues() {
         axios.get("/issues").then(response => {
             dispatch({
                 type: "GET_ALL_ISSUES",
-                issues: response
+                issues: response.data
             });
         });
     }
@@ -27,7 +27,7 @@ export function postNewIssue() {
         axios.get("/issues").then(response => {
             dispatch({
                 type: "POST_NEW_ISSUE",
-                issue: response
+                issue: response.data
             });
         });
     }
@@ -38,7 +38,7 @@ export function putIssue(id) {
         axios.get("/issues/" + id).then(response => {
             dispatch({
                 type: "PUT_ISSUE",
-                issue: response
+                issue: response.data
             });
         });
     }

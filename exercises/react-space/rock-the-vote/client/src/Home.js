@@ -1,13 +1,11 @@
 import React from 'react';
 
+import IssuesList from './Issues/IssuesList';
+
 const Home = () => {
     return (
-        <div className="about">
-            <div className="aboutContent">
-                <p>
-                    This is the home page.
-                </p>
-            </div>
+        <div className="home">
+            <IssuesList />
         </div>
     )
 }
