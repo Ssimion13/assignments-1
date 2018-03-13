@@ -4,7 +4,7 @@ import {Switch, Route} from 'react-router-dom';
 import Navbar from './Navbar';
 import Home from './Home';
 
-import IssuesList from './IssuesList';
+import IssuesList from './Issues/IssuesList';
 
 class App extends Component {
   render() {
@@ -15,6 +15,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path="./about" component={About}/>
           </Switch>
+          <IssuesList />
       </div>
     );
   }

@@ -12,12 +12,6 @@ import store from './redux';
 import './styles.css';
 import App from './App';
 
-const store = createStore(
-    reducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk)
-);
-
 ReactDOM.render(
     <Provider store={store}>
         <Router>
