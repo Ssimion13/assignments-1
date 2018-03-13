@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export function getOneIssue(issue.id) {
+export function getOneIssue(id) {
     return function(dispatch) {
-        axios.get("/issues/" + issue.id).then(response => {
+        axios.get("/issues/" + id).then(response => {
             dispatch({
-                    type: "GET_ONE_ISSUE",
-                    issue: response
+                type: "GET_ONE_ISSUE",
+                issue: response
             });
         });
     }
@@ -15,41 +15,41 @@ export function getAllIssues() {
     return function(dispatch) {
         axios.get("/issues").then(response => {
             dispatch({
-                    type: "GET_ALL_ISSUES",
-                    issues: response
+                type: "GET_ALL_ISSUES",
+                issues: response
             });
         });
     }
 }
 
-export function getAllIssues() {
+export function postNewIssue() {
     return function(dispatch) {
         axios.get("/issues").then(response => {
             dispatch({
-                    type: "GET_ALL_ISSUES",
-                    issues: response
+                type: "POST_NEW_ISSUE",
+                issue: response
             });
         });
     }
 }
 
-export function putIssue(issue) {
+export function putIssue(id) {
     return function(dispatch) {
-        axios.get("/issues/" + issue.id).then(response => {
+        axios.get("/issues/" + id).then(response => {
             dispatch({
-                    type: "PUT_ISSUE",
-                    issue: response
+                type: "PUT_ISSUE",
+                issue: response
             });
         });
     }
 }
 
-export function deleteIssue(issue.id) {
+export function deleteIssue(id) {
     return function(dispatch) {
-        axios.delete("/issues/" + issue.id).then(response => {
+        axios.delete("/issues/" + id).then(response => {
             dispatch({
-                    type: "DELETE_ISSUE",
-                    issueId: issue.id
+                type: "DELETE_ISSUE",
+                issueId: id
             });
         });
     }
@@ -65,7 +65,7 @@ function reducer(prevState = [], action) {
             return [...prevState, action.newIssue];
         case "PUT_ISSUE":
             return prevState.map(issue => {
-                issue.id === action.id ? action.issue : issue;
+                return issue.id === action.id ? action.issue : issue;
             });
         case "DELETE_ISSUE":
             return prevState.filter(issue => {

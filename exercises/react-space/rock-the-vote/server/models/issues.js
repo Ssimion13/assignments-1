@@ -11,8 +11,14 @@ const issuesSchema = new Schema ({
         required: true
     },
     vote: {
-        up: Number,
-        down: Number
+        up: {
+            type: Number,
+            default: 0
+        },
+        down: {
+            type: Number,
+            default: 0
+        }
     },
     comments: [String]
 });
