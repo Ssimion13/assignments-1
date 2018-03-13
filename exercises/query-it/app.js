@@ -1,8 +1,13 @@
 const filterDatabase = (obj, database) => {
-    if (JSON.stringify(obj) === '{}') {
-        return database;
-    }
-    
+    return database.filter(obj => {
+        for (let prop in query) {
+            if (query.hasOwnProperty(prop) && query[prop] !== obj[prop]) {
+                return false;
+            }
+        }
+        return true;
+    });
+
 }
 
 const database = [
