@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Switch, Route} from 'react-router-dom';
+
+import Navbar from './Navbar';
+import Home from './Home';
 
 import IssuesList from './IssuesList';
 
@@ -6,8 +10,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h1>Rock The Vote</h1>
-          <IssuesList />
+          <Navbar />
+          <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="./about" component={About}/>
+          </Switch>
       </div>
     );
   }
