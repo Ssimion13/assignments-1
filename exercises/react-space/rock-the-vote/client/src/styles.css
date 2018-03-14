@@ -108,3 +108,9 @@ div > .edit {
     border-radius: 5px;
     border: black 1px solid;
 }
+
+.issue .commentButton {
+    height: 30px;
+    width: 100px;
+    background-color: purple;
+}

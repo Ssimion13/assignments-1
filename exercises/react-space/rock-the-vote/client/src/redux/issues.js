@@ -44,10 +44,10 @@ export function putIssue(id, update) {
     }
 }
 
-export function incrementUpVote(id, num) {
+export function incrementUpVote(id, upNum, downNum) {
     return function(dispatch) {
-        num = num + 1;
-        const obj = {vote: {up: num}};
+        upNum = upNum + 1;
+        const obj = {vote: {up: upNum, down: downNum}};
         axios.put("/issues/" + id, obj).then(response => {
             dispatch({
                 type: "PUT_ISSUE",
@@ -57,11 +57,22 @@ export function incrementUpVote(id, num) {
     }
 }
 
-export function incrementDownVote(id, num) {
+export function incrementDownVote(id, upNum, downNum) {
     return function(dispatch) {
-        num = num + 1;
-        const obj = {vote: {down: num}};
+        downNum = downNum + 1;
+        const obj = {vote: {up: upNum, down: downNum}};
         axios.put("/issues/" + id, obj).then(response => {
+            dispatch({
+                type: "PUT_ISSUE",
+                issue: response.data
+            });
+        });
+    }
+}
+
+export function addComment(id, commentStr) {
+    return function(dispatch) {
+        axios.put("/issues/" + id, {commentStr}).then(response => {
             dispatch({
                 type: "PUT_ISSUE",
                 issue: response.data

@@ -9,6 +9,7 @@ class Issue extends Component {
         this.state = {
             title: props.info.title,
             description: props.info.description,
+            comment: "",
             isEditing: false,
             isAddingComment: false
         }
@@ -38,16 +39,34 @@ class Issue extends Component {
         this.props.putIssue(this.props.info._id, {title, description});
     }
 
-    handleCancel = () => {
+    handleEditCancel = () => {
         this.setState({isEditing: false});
     }
 
+    handleComment = () => {
+        this.setState({isAddingComment: true});
+    }
+
+    handleCommentSave = (e) => {
+        e.preventDefault();
+        const newComments = [...this.props.info.comments, this.state.comment];
+        this.setState({
+            comment: "",
+            isAddingComment: false
+        });
+        this.props.putIssue(this.props.info._id, {comments: newComments});
+    }
+
+    handleCommentCancel = (e) => {
+        this.setState({isAddingComment: false});
+    }
+
     handleUpVote = (e) => {
-        this.props.incrementUpVote(this.props.info._id, this.props.info.vote.up);
+        this.props.incrementUpVote(this.props.info._id, this.props.info.vote.up, this.props.info.vote.down);
     }
 
     handleDownVote = (e) => {
-        this.props.incrementDownVote(this.props.info._id, this.props.info.vote.down);
+        this.props.incrementDownVote(this.props.info._id, this.props.info.vote.up, this.props.info.vote.down);
     }
 
     render() {
@@ -78,7 +97,7 @@ class Issue extends Component {
                                 placeholder={this.props.info.description}
                             />
                             <button type="button" onClick={this.handleEditSave}>Save</button>
-                            <button type="button" onClick={this.handleCancel}>Cancel</button>
+                            <button type="button" onClick={this.handleEditCancel}>Cancel</button>
                         </div>
                     </form>
                     }
@@ -90,11 +109,13 @@ class Issue extends Component {
                     <button className="remove" onClick={this.handleDelete}>REMOVE</button>
                     <button className="edit" onClick={this.handleEdit}>EDIT</button>
                 </div>
-                <button onClick={this.handleAddComment}>ADD COMMENT</button>
-                    {!this.state.isAddingComment ?
-                        <div>
-                            <h3>{this.props.info.comments}</h3>
-                        </div>
+
+                {!this.state.isAddingComment ?
+                    <div>
+                        {this.props.info.comments.map(comment => {
+                            return <h3>{comment}</h3>
+                        })}
+                    </div>
                     :
                     <form>
                         <div>
@@ -106,10 +127,12 @@ class Issue extends Component {
                                 id="comment"
                                 placeholder="Add comment here"
                             />
-                        <button type="button" onClick={this.handleEditSave}>Save</button>
-                        <button type="button" onClick={this.handleCancel}>Cancel</button>
+                        <button type="button" onClick={this.handleCommentSave}>Save</button>
+                        <button type="button" onClick={this.handleCommentCancel}>Cancel</button>
                         </div>
                     </form>
+                }
+                <button className="commentButton" onClick={this.handleComment}>ADD COMMENT</button>
             </div>
         )
     }
