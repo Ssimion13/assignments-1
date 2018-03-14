@@ -22,9 +22,9 @@ export function getAllIssues() {
     }
 }
 
-export function postNewIssue() {
+export function postNewIssue(newIssue) {
     return function(dispatch) {
-        axios.get("/issues").then(response => {
+        axios.post("/issues", newIssue).then(response => {
             dispatch({
                 type: "POST_NEW_ISSUE",
                 issue: response.data
@@ -35,7 +35,7 @@ export function postNewIssue() {
 
 export function putIssue(id) {
     return function(dispatch) {
-        axios.get("/issues/" + id).then(response => {
+        axios.put("/issues/" + id).then(response => {
             dispatch({
                 type: "PUT_ISSUE",
                 issue: response.data
@@ -61,8 +61,8 @@ function reducer(prevState = [], action) {
             return action.issue;
         case "GET_ALL_ISSUES":
             return action.issues;
-        case "ADD_NEW_ISSUE":
-            return [...prevState, action.newIssue];
+        case "POST_NEW_ISSUE":
+            return [...prevState, action.issue];
         case "PUT_ISSUE":
             return prevState.map(issue => {
                 return issue.id === action.id ? action.issue : issue;

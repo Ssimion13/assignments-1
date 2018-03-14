@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {getAllIssues} from '../redux/issues';
+import { getAllIssues } from '../redux/issues';
 import Issue from './Issue';
 import AddIssue from './AddIssue';
 
