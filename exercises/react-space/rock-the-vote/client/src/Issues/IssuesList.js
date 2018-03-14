@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getAllIssues } from '../redux/issues';
 import Issue from './Issue';
 import AddIssue from './AddIssue';
+import EditIssue from './EditIssue';
 
 class IssuesList extends Component {
 
@@ -12,11 +13,11 @@ class IssuesList extends Component {
     }
 
     render() {
-
         return (
         <div className='issuesList'>
             <h3>IssuesList</h3>
             <AddIssue />
+            <EditIssue />
             <div>
                 {this.props.issues.map((issue, i) => {
                     return <Issue
@@ -31,4 +32,4 @@ class IssuesList extends Component {
     }
 }
 
-export default connect(state => state, {getAllIssues})(IssuesList);
+export default connect(state => state, { getAllIssues,  })(IssuesList);

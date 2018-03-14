@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { postNewIssue } from '../redux/issues';
+import { putIssue } from '../redux/issues';
 
-class AddIssue extends Component {
+class EditIssue extends Component {
     constructor() {
         super();
         this.state = {
             title: "",
             description: "",
-            isAdding: false
+            isChanging: false
         }
     }
 
@@ -32,8 +32,8 @@ class AddIssue extends Component {
     render() {
         return (
             <div>
-                <form className="inputForm" onSubmit={this.handleSubmit}>
-                    <button className="inputButton">Add New Issue</button>
+                <form className="editForm" onSubmit={this.handleSubmit}>
+                    <button className="editButton">Add New Issue</button>
                     <textarea
                         onChange={this.handleChange}
                         value={this.state.title}
@@ -56,4 +56,4 @@ class AddIssue extends Component {
     }
 }
 
-export default connect(state => state, { postNewIssue })(AddIssue);
+export default connect(state => state, { putIssue })(EditIssue);

@@ -10,6 +10,10 @@ const Issue = (props) => {
             <button>DOWN</button>
             <p>Up Votes: {props.vote.up}</p>
             <p>Down Votes: {props.vote.down}</p>
+            <div>
+                <button className="remove">REMOVE</button>
+                    <button className="edit">EDIT</button>
+            </div>
         </div>
     )
 }
