@@ -20,13 +20,13 @@ class AddIssue extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const title = this.state.title;
-        const desc = this.state.description;
+        const description = this.state.description;
         this.setState({
             title: "",
             description: "",
             isAdding: false
         });
-        this.props.postNewIssue({title: title, description: desc});
+        this.props.postNewIssue({title, description});
     }
 
     render() {

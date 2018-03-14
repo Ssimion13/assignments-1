@@ -33,9 +33,9 @@ export function postNewIssue(newIssue) {
     }
 }
 
-export function putIssue(id) {
+export function putIssue(id, update) {
     return function(dispatch) {
-        axios.put("/issues/" + id).then(response => {
+        axios.put("/issues/" + id, update).then(response => {
             dispatch({
                 type: "PUT_ISSUE",
                 issue: response.data
@@ -65,11 +65,11 @@ function reducer(prevState = [], action) {
             return [...prevState, action.issue];
         case "PUT_ISSUE":
             return prevState.map(issue => {
-                return issue.id === action.id ? action.issue : issue;
+                return issue._id === action.issue._id ? action.issue : issue;
             });
         case "DELETE_ISSUE":
             return prevState.filter(issue => {
-                return action.issueId !== issue.id;
+                return action.issueId !== issue._id;
             });
         default:
             return prevState
