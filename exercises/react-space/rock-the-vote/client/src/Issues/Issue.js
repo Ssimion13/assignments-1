@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { deleteIssue, putIssue } from '../redux/issues';
+import { deleteIssue, putIssue, incrementUpVote, incrementDownVote } from '../redux/issues';
 
 class Issue extends Component {
     constructor(props) {
@@ -9,7 +9,8 @@ class Issue extends Component {
         this.state = {
             title: props.info.title,
             description: props.info.description,
-            isEditing: false
+            isEditing: false,
+            isAddingComment: false
         }
     }
 
@@ -41,6 +42,14 @@ class Issue extends Component {
         this.setState({isEditing: false});
     }
 
+    handleUpVote = (e) => {
+        this.props.incrementUpVote(this.props.info._id, this.props.info.vote.up);
+    }
+
+    handleDownVote = (e) => {
+        this.props.incrementDownVote(this.props.info._id, this.props.info.vote.down);
+    }
+
     render() {
         return (
             <div className="issue">
@@ -68,22 +77,45 @@ class Issue extends Component {
                                 id="description"
                                 placeholder={this.props.info.description}
                             />
-                            <button type="button" onClick={this.handleEditSave}>Save Edits</button>
+                            <button type="button" onClick={this.handleEditSave}>Save</button>
                             <button type="button" onClick={this.handleCancel}>Cancel</button>
                         </div>
                     </form>
                     }
-                <button>UP</button>
-                <button>DOWN</button>
+                <button onClick={this.handleUpVote}>UP</button>
+                <button onClick={this.handleDownVote}>DOWN</button>
                 <p>Up Votes: {this.props.info.vote.up}</p>
                 <p>Down Votes: {this.props.info.vote.down}</p>
                 <div>
                     <button className="remove" onClick={this.handleDelete}>REMOVE</button>
                     <button className="edit" onClick={this.handleEdit}>EDIT</button>
                 </div>
+                <button onClick={this.handleAddComment}>ADD COMMENT</button>
+                    {!this.state.isAddingComment ?
+                        <div>
+                            <h3>{this.props.info.comments}</h3>
+                        </div>
+                    :
+                    <form>
+                        <div>
+                            <textarea
+                                onChange={this.handleChange}
+                                value={this.state.comment}
+                                type="text"
+                                name= "comment"
+                                id="comment"
+                                placeholder="Add comment here"
+                            />
+                        <button type="button" onClick={this.handleEditSave}>Save</button>
+                        <button type="button" onClick={this.handleCancel}>Cancel</button>
+                        </div>
+                    </form>
             </div>
         )
     }
 }
 
-export default connect(state => state, { deleteIssue, putIssue })(Issue);
+export default connect(state => state, { deleteIssue,
+                                        putIssue,
+                                        incrementUpVote,
+                                        incrementDownVote })(Issue);

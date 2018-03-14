@@ -44,6 +44,32 @@ export function putIssue(id, update) {
     }
 }
 
+export function incrementUpVote(id, num) {
+    return function(dispatch) {
+        num = num + 1;
+        const obj = {vote: {up: num}};
+        axios.put("/issues/" + id, obj).then(response => {
+            dispatch({
+                type: "PUT_ISSUE",
+                issue: response.data
+            });
+        });
+    }
+}
+
+export function incrementDownVote(id, num) {
+    return function(dispatch) {
+        num = num + 1;
+        const obj = {vote: {down: num}};
+        axios.put("/issues/" + id, obj).then(response => {
+            dispatch({
+                type: "PUT_ISSUE",
+                issue: response.data
+            });
+        });
+    }
+}
+
 export function deleteIssue(id) {
     return function(dispatch) {
         axios.delete("/issues/" + id).then(response => {
