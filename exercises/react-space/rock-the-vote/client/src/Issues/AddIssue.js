@@ -9,7 +9,7 @@ class AddIssue extends Component {
         this.state = {
             title: "",
             description: "",
-            isAdding: false
+            isAddingIssue: false
         }
     }
 
@@ -17,40 +17,53 @@ class AddIssue extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    handleSubmit = (e) => {
+    handleAddIssue = () => {
+        this.setState({isAddingIssue: true});
+    }
+
+    handleIssueSave = (e) => {
         e.preventDefault();
         const title = this.state.title;
         const description = this.state.description;
         this.setState({
             title: "",
             description: "",
-            isAdding: false
+            isAddingIssue: false
         });
         this.props.postNewIssue({title, description});
     }
 
+    handleIssueCancel = () => {
+        this.setState({isAddingIssue: false});
+    }
+
     render() {
         return (
-            <div>
-                <form className="inputForm" onSubmit={this.handleSubmit}>
-                    <button className="inputButton">Add New Issue</button>
-                    <textarea
-                        onChange={this.handleChange}
-                        value={this.state.title}
-                        type="text"
-                        name= "title"
-                        id="title"
-                        placeholder="Enter Title"
-                    />
-                    <textarea
-                        onChange={this.handleChange}
-                        value={this.state.description}
-                        type="text"
-                        name= "description"
-                        id="description"
-                        placeholder="Enter Description"
-                    />
-                </form>
+            <div className="addIssueForm">
+                {!this.state.isAddingIssue ?
+                    <button className="inputButton" onClick={this.handleAddIssue}>Add New Issue</button>
+                :
+                    <form className="inputForm">
+                        <textarea
+                            onChange={this.handleChange}
+                            value={this.state.title}
+                            type="text"
+                            name= "title"
+                            id="title"
+                            placeholder="Enter Title"
+                        />
+                        <textarea
+                            onChange={this.handleChange}
+                            value={this.state.description}
+                            type="text"
+                            name= "description"
+                            id="description"
+                            placeholder="Enter Description"
+                        />
+                        <button type="button" onClick={this.handleIssueSave}>Save</button>
+                        <button type="button" onClick={this.handleIssueCancel}>Cancel</button>
+                    </form>
+                }
             </div>
         )
     }

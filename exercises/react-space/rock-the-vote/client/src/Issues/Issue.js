@@ -62,11 +62,15 @@ class Issue extends Component {
     }
 
     handleUpVote = (e) => {
-        this.props.incrementUpVote(this.props.info._id, this.props.info.vote.up, this.props.info.vote.down);
+        this.props.incrementUpVote(this.props.info._id,
+                                    this.props.info.vote.up,
+                                    this.props.info.vote.down);
     }
 
     handleDownVote = (e) => {
-        this.props.incrementDownVote(this.props.info._id, this.props.info.vote.up, this.props.info.vote.down);
+        this.props.incrementDownVote(this.props.info._id,
+                                    this.props.info.vote.up,
+                                    this.props.info.vote.down);
     }
 
     render() {
@@ -78,7 +82,7 @@ class Issue extends Component {
                             <h3>{this.props.info.description}</h3>
                         </div>
                     :
-                    <form>
+                    <form className="editForm">
                         <div>
                             <textarea
                                 onChange={this.handleChange}
@@ -117,7 +121,7 @@ class Issue extends Component {
                         })}
                     </div>
                     :
-                    <form>
+                    <form className="commentForm">
                         <div>
                             <textarea
                                 onChange={this.handleChange}
