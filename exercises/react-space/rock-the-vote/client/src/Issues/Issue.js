@@ -122,7 +122,6 @@ class Issue extends Component {
                     </div>
                     :
                     <form className="commentForm">
-                        <div>
                             <textarea
                                 onChange={this.handleChange}
                                 value={this.state.comment}
@@ -133,7 +132,6 @@ class Issue extends Component {
                             />
                         <button type="button" onClick={this.handleCommentSave}>Save</button>
                         <button type="button" onClick={this.handleCommentCancel}>Cancel</button>
-                        </div>
                     </form>
                 }
                 <button className="commentButton" onClick={this.handleComment}>ADD COMMENT</button>

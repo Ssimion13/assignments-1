@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-color: #ECF7FF;
 }
 
 .inputForm > button {
@@ -69,7 +70,7 @@ p {
     color: blue;
 }
 
-.commentForm div {
+.commentForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
