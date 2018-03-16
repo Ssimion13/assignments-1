@@ -13,6 +13,9 @@ const showsSchema = new Schema({
     location: {
         type: String,
         required: true
+    },
+    url: {
+        type: String
     }
 });
 

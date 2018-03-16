@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const bandText = "Jack Darwin - an indie-rock, neo-folk band based in Nashville, TN"
+const bandText = "Jack Darwin - a neo-folk, indie-rock band based in Nashville, TN"
 
 const bandThingsSchema = new Schema({
     bandInfo: {
